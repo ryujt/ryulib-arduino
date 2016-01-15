@@ -6,5 +6,6 @@
 
 ### Tutorials (Korean only)
 
-* https://youtu.be/uWhHt047vgw
-* https://youtu.be/gjyymH0x-XM
+* Space Ship project
+  * https://youtu.be/uWhHt047vgw
+  * https://youtu.be/gjyymH0x-XM
