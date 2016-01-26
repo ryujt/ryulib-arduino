@@ -9,8 +9,8 @@ bool GameControlBase::checkCollisionWith(GameControlBase *control)
 
 	int hit_size = _HitSize + control->_HitSize;
 
-	int x_distance = abs(_X - control->_X);
-	int y_distance = abs(_Y - control->_Y);
+	int x_distance = abs(x - control->x);
+	int y_distance = abs(y - control->y);
 
 	if (x_distance > hit_size) return false;
 	if (y_distance > hit_size) return false;
@@ -136,6 +136,11 @@ GameLayer *GameEngine::addLayer()
 
 	return layer;
 }
+	
+void GameEngine::addControl(GameControlBase *object)
+{
+	_MainLayer->addControl(object);
+}
 
 void GameEngine::start()
 {
@@ -152,7 +157,7 @@ void GameEngine::start()
 	}
 }
 	
-void GameEngine::update()
+unsigned long GameEngine::update()
 {
 	unsigned long tick = millis();
 	unsigned long term = 0;
@@ -173,4 +178,6 @@ void GameEngine::update()
 	_AudioTrack.update(term);
 
 	if (_OnAfterUpdate != NULL) _OnAfterUpdate(term);
+
+	return term;
 }
