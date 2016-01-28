@@ -1,0 +1,23 @@
+LED: b20 - b22 (-)
+LED: b24 - b26 (-)
+LED: b28 - b30 (-)
+LED: i20 - i22 (-)
+LED: i24 - i26 (-)
+LED: i28 - i30 (-)
+LED: e25 - f25 (+)
+
+R 330: (-) - a22
+R 330: (-) - a26
+R 330: (-) - a30
+R 330: (-) - j22
+R 330: (-) - j26
+R 330: (-) - j30
+R 330: (-) - a25
+
+Jumper: e28 - j11
+Jumper: e24 - j10
+Jumper: e20 - j09
+Jumper: f28 - j08
+Jumper: f24 - j07
+Jumper: f20 - j06
+Jumper: g25 - j05
