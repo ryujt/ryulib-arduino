@@ -36,6 +36,7 @@ void GameLayer::addControl(GameControlBase *control)
 	 control->_LCD = _LCD;
 	 control->_Engine = _Engine;
 	 control->_Layer = this;
+	 control->start();
 
 	_Controls.add(control);
 }
