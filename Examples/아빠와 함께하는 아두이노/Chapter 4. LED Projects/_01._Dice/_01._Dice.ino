@@ -1,6 +1,5 @@
 void setup() {
-  int i;  
-  for (i=0; i<7; i++) {
+  for (int i=0; i<7; i++) {
     pinMode(i+2, OUTPUT);
     digitalWrite(i+2, LOW);
   }
