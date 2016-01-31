@@ -24,6 +24,9 @@ void loop() {
 
   writeShift( 0b00010000 );
   delay(200);
+
+  writeShift( 0b00100000 );
+  delay(200);
 }
 
 void writeShift(byte data)
