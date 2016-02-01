@@ -1,20 +1,20 @@
-LED: (-) - a20
-LED: (-) - a22
-LED: (-) - a24
-LED: (-) - a26
-LED: (-) - a28
-LED: (-) - a30
+R 330: Gnd - a20
+R 330: Gnd - a22
+R 330: Gnd - a24
+R 330: Gnd - a26
+R 330: Gnd - a28
+R 330: Gnd - a30
 
-R 330: e20 - f20
-R 330: e22 - f22
-R 330: e24 - f24
-R 330: e26 - f26
-R 330: e28 - f28
-R 330: e30 - f30
+LED: b19 - b20
+LED: b21 - b22
+LED: b23 - b24
+LED: b25 - b26
+LED: b27 - b28
+LED: b29 - b30
 
-Jumper: j30 - j11
-Jumper: j28 - j10
-Jumper: j26 - j09
-Jumper: j24 - j08
-Jumper: j22 - j07
-Jumper: j20 - j06
+Jumper: e19 - j06
+Jumper: e21 - j07
+Jumper: e23 - j08
+Jumper: e25 - j09
+Jumper: e27 - j10
+Jumper: e29 - j11

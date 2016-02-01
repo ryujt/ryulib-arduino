@@ -1,6 +1,8 @@
 #include <RyuGame.h>
 #include <cheetah.h>
 
+int pin_fire = 12;
+
 class Cheetah : public GameControlBase
 {
 private:
@@ -17,12 +19,21 @@ public:
   {
     _LCD->drawBitmap(x, y, cheetah_image[_Index], CHEETAH_WIDTH, CHEETAH_HEIGHT, BLACK);
 
-    _TickCount = _TickCount + tick;
-    if (_TickCount > 100) {
+    _LCD->setTextSize(1);
+    _LCD->setCursor(0, 0);
+    _LCD->println(_Index);        
+
+    if (_TickCount < 500) _TickCount = _TickCount + tick;
+  }
+
+  void incIndex() 
+  {
+      if (_TickCount < 500) return;
+
       _TickCount = 0;
+      
       _Index++;
       if (_Index >= CHEETAH_COUNT) _Index = 0;
-    }
   }
 };
 
@@ -30,11 +41,15 @@ GameEngine gameEngine(13, 6, 5, 4, 3, 2);
 Cheetah cheetah;
 
 void setup() {
+  pinMode(pin_fire, INPUT_PULLUP);
+
   gameEngine.addControl(&cheetah);
   gameEngine.start();
 }
 
 void loop() {
+  if (digitalRead(pin_fire) == LOW) cheetah.incIndex();
+  
   gameEngine.update();
 }
 
