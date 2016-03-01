@@ -2,7 +2,7 @@ int pin_sw = 2;
 int pin_led = 13;
 
 void setup() {
-  pinMode(pin_sw, INPUT);
+  pinMode(pin_sw, INPUT_PULLUP);
   pinMode(pin_led, OUTPUT);
 }
 

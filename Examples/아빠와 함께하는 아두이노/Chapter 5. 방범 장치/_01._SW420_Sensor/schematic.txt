@@ -1,5 +1,0 @@
-R 10K: Gnd - a25
-
-SW-420: c20 - c25
-
-Jumper: e20 - j11
