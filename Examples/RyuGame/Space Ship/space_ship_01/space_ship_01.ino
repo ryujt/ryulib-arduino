@@ -2,10 +2,13 @@
 #include "Globals.h"
 #include "SpaceShip.h"
 
-int pin_left = 7;
-int pin_right = 8;
+int pin_left  = 4;
+int pin_right = 5;
+int pin_up    = 6;
+int pin_down  = 7;
+int pin_fire  = 8;
 
-GameEngine gameEngine(13, 6, 5, 4, 3, 2);
+GameEngine gameEngine(3, 9, 10, 11, 12, 13);
 SpaceShip spaceShip;
 
 void setup() 

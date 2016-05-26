@@ -10,7 +10,7 @@
 
 
 int chance_enemy = 20;
-int enemy_speed = 100;
+int enemy_speed = 50;
 
 
 static const unsigned char PROGMEM enemy_image[] =
@@ -70,11 +70,11 @@ public:
 	{
                 _TickCount = _TickCount + tick;
 
-                if (_TickCount >= 5000) {
+                if (_TickCount >= 2000) {
                         _TickCount = 0;
 
-                        if (chance_enemy > 5) chance_enemy--;
-                        if (enemy_speed > 10) enemy_speed = enemy_speed - 5;
+                        if (chance_enemy > 4) chance_enemy--;
+                        if (enemy_speed > 10) enemy_speed = enemy_speed - 4;
                 }
 
                 if ((rand() % chance_enemy) != 0) return;
