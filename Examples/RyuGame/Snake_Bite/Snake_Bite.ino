@@ -9,9 +9,6 @@ int pin_up    = 6;
 int pin_down  = 7;
 int pin_fire  = 8;
 
-int missile_interval = 500;
-int missile_counter = 0;
-
 // 게임 종료 처리가 된 적이 있는 가?
 bool is_game_end_fire = false;
 
@@ -29,6 +26,8 @@ void setup() {
   gameEngine.addControl(&snake);
   gameEngine.addControl(&foods);
   gameEngine.start();
+
+  gameEngine.getLCD().setContrast(60);
 
   sound_effect_game_start(gameEngine.getAudioTrack());
 }
