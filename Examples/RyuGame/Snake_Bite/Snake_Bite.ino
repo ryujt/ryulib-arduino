@@ -27,7 +27,8 @@ void setup() {
   gameEngine.addControl(&foods);
   gameEngine.start();
 
-  gameEngine.getLCD().setContrast(60);
+  // 3.7v 건전지를 사용 할 때 필요합니다.
+//  gameEngine.getLCD()->setContrast(60);
 
   sound_effect_game_start(gameEngine.getAudioTrack());
 }

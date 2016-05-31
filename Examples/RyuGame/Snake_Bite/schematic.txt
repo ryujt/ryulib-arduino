@@ -1,0 +1,45 @@
+Jumper: top.a12 - top.Vcc
+Jumper: top.a14 - top.Gnd
+Jumper: top.j12 - top.Gnd
+
+Jumper: top.Vcc - bottom.Vcc
+Jumper: top.Gnd - bottom.Gnd
+
+Jumper: bottom.j3 - Gnd
+Jumper: bottom.j6 - Gnd
+Jumper: bottom.j9 - Gnd
+Jumper: bottom.j16 - Gnd
+Jumper: bottom.j28 - Vcc
+Jumper: bottom.j30 - Gnd
+
+Jumper: bottom.e10 - bottom.f10
+Jumper: bottom.e30 - bottom.f30
+
+Jumper: bottom.a4 - Gnd
+Jumper: bottom.a6 - a10
+Jumper: bottom.a30 - Gnd
+
+Nokia 5110: top.c23 - top.c30, bottom.g23 - bottom.g30, 
+
+Buzzer: bottom.a11 - Gnd
+
+Push button: bottom.f1, bottom.f3, bottom.e1, bottom.e3
+Push button: bottom.f7, bottom.f9, bottom.e7, bottom.e9
+Push button: bottom.f14, bottom.f16, bottom.e14, bottom.e16
+
+Push button: bottom.i4, bottom.i6, bottom.g4, bottom.g6
+Push button: bottom.d4, bottom.d6, bottom.b4, bottom.b6
+
+Jumper cable: top.j11(d2) - bottom.e11
+
+Jumper cable: top.j10(d3) - bottom.j1
+Jumper cable: top.j9(d4) - bottom.j7
+Jumper cable: top.j7(d6) - bottom.j4
+Jumper cable: top.j6(d7) - bottom.j10
+Jumper cable: top.j5(d8) - bottom.j14
+
+Jumper cable: top.j4(d9) - top.e27
+Jumper cable: top.j3(d10) - top.e26
+Jumper cable: top.j2(d11) - top.e25
+Jumper cable: top.j1(d12) - top.e24
+Jumper cable: top.a1(d13) - top.e23
