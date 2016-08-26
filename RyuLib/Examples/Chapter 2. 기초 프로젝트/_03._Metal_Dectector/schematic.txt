@@ -1,0 +1,37 @@
+Jumper 10mm: Vcc - a12
+Jumper 8mm: Gnd - a14
+Jumper 10mm: j12 - Gnd
+
+Jumper: a20 - Vcc
+Jumper: e22 - f22
+Jumper: i21 - i25
+Jumper: j23 - Vcc
+Jumper: g24 - g27
+Jumper: a25 - Gnd
+Jumper: j26 - Vcc
+Jumper: e28 - f27
+Jumper: Vcc - a30
+Jumper: e30 - f30
+Jumper: j30 - Vcc
+
+C 104: Vcc - Gnd
+C 104: h21 - h23
+C 222: Vcc - a22
+C 222: c21 - c23
+
+C 100uF: Vcc - j24
+
+R 220K: Vcc - a23
+R  22K: Gnd - j21
+VR 100R: a24 - a26 - c25
+
+Tr 9018: d22 - d23 - d24 (]
+Tr 9015: g21 - g22 - g23 (]
+Tr 9012: h24 - h25 - h26 (]
+
+LED: Gnd - j27
+
+Buzzer: Gnd - a28
+
+Coil 1: Vcc - b21
+Coil 2: Vcc - b22
