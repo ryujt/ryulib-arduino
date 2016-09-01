@@ -1,0 +1,31 @@
+Jumper 10mm: Vcc - a12
+Jumper 8mm:  Gnd - a14
+Jumper 10mm: j12 - Gnd
+
+Jumper 8mm:  Gnd - a30
+Jumper 10mm: j30 - Gnd
+
+R 330: Gnd - a18
+R 330: Gnd - a20
+R 330: Gnd - a22
+
+R 330: Gnd - a25
+R 330: j25 - Gnd
+
+LED Green:  e18 - f18 (Vcc)
+LED Yellow: e20 - f20 (Vcc)
+LED Red:    e22 - f22 (Vcc)
+
+LED Red:    b25 - b26 (Vcc)
+LED Red:    i25 - i26 (Vcc)
+
+Button Switch: c28 - c30
+Button Switch: h28 - h30
+
+Jumper MM: j5  - e28
+Jumper MM: j6  - j28
+Jumper MM: j7  - j18
+Jumper MM: j8  - j20
+Jumper MM: j9  - j22
+Jumper MM: j10 - e26
+Jumper MM: j11 - f26

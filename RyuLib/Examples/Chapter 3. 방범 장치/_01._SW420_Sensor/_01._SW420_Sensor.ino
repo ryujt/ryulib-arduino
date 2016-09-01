@@ -1,21 +1,21 @@
-int pin_sw = 2;
-int pin_led = 13;
-
 void setup() {
-  pinMode(pin_sw, INPUT_PULLUP);
-  pinMode(pin_led, OUTPUT);
+  pinMode(2, INPUT_PULLUP);
+  pinMode(13, OUTPUT);
 }
 
 int old_state = 0;
 
 void loop() {
-  int state = digitalRead(pin_sw);
+  int state = digitalRead(2);
   
   if (state != old_state) {
     old_state = state;
 
-    digitalWrite(pin_led, HIGH);
-    delay(1000);
-    digitalWrite(pin_led, LOW);
+    for (int i=0; i<10; i++) {
+      digitalWrite(13, HIGH);
+      delay(500);
+      digitalWrite(13, LOW);
+      delay(500);
+    }
   }
 }

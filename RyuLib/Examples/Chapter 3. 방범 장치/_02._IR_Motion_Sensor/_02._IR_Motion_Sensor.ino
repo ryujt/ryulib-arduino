@@ -1,15 +1,15 @@
-int pin_input = 2; 
-int pin_led = 13;   
-
 void setup() {
-  pinMode(pin_input, INPUT);  
-  pinMode(pin_led, OUTPUT);   
+  pinMode(12, INPUT);  
+  pinMode(13, OUTPUT);   
 }
 
 void loop() {
-  if (digitalRead(pin_input) == HIGH) {       
-    digitalWrite(pin_led, HIGH);
-  } else {
-    digitalWrite(pin_led, LOW);
+  if (digitalRead(12) == HIGH) {       
+    for (int i=0; i<10; i++) {
+      digitalWrite(13, HIGH);
+      delay(500);
+      digitalWrite(13, LOW);
+      delay(500);
+    }
   }
 }
