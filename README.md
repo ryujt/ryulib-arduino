@@ -11,6 +11,9 @@
 
 ### RyuGame
 
-* Space Ship project
+* Space Ship game
   * https://youtu.be/uWhHt047vgw
   * https://youtu.be/gjyymH0x-XM
+
+* Snake bite game
+  * https://youtu.be/6IOc4kjooao
