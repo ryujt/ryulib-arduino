@@ -1,0 +1,12 @@
+Jumper 10mm: Vcc - a12
+Jumper 8mm:  Gnd - a14
+Jumper 10mm: j12 - Gnd
+
+Jumper 8mm:  Gnd - a20
+Jumper 10mm: Vcc - a25
+
+R 10K: d21 - d24
+
+Thermistor 10K: e24 - e25
+
+Jumper MM: a4 - a24
