@@ -29,3 +29,5 @@ Jumper MM: j8  - j20
 Jumper MM: j9  - j22
 Jumper MM: j10 - e26
 Jumper MM: j11 - f26
+
+Buzzer: Gnd - a1
