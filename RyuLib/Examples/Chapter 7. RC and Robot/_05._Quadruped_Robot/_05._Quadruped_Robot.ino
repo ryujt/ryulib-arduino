@@ -24,6 +24,7 @@ void setup() {
 }
 
 int command = 0;
+int old_command = 0;
 
 void loop() {  
   if ( radio.available() ) {
@@ -33,6 +34,10 @@ void loop() {
     
 //    Serial.println(valarray[0]);
   }
+
+  if (command == old_command) return;
+
+  old_command = command;
 
   switch (command) {
     case KEY_FIRE: get_up(); break;

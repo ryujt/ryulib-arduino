@@ -24,9 +24,9 @@ void loop() {
 
   if (command > 1000) return;
 
-       if (command > 700)  command = KEY_FIRE;
-  else if (command > 500)    command = KEY_RIGHT;
-  else if (command > 300)  command = KEY_DOWN;
+       if (command > 700) command = KEY_FIRE;
+  else if (command > 500) command = KEY_RIGHT;
+  else if (command > 300) command = KEY_DOWN;
   else if (command > 100) command = KEY_UP;
   else command = KEY_LEFT;  
 
