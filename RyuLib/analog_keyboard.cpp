@@ -1,11 +1,5 @@
 #include <analog_keyboard.h>
 
-#define KEY_FIRE   200
-#define KEY_RIGHT  500
-#define KEY_DOWN   600
-#define KEY_UP     800
-#define KEY_LEFT  1000
-
 int readKey(int pin) {
   int temp = analogRead(pin);	
 
