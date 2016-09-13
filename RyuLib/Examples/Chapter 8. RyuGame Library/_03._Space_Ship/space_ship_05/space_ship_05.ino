@@ -1,12 +1,11 @@
+// 우주선과 적기의 충돌 테스트 추가
+
 #include <RyuGame.h>
+#include <analog_keyboard.h>
 #include "Globals.h"
 #include "SpaceShip.h"
 #include "Enemies.h"
 #include "Missile.h"
-
-int pin_left = 7;
-int pin_right = 8;
-int pin_fire = 12;
 
 int missile_interval = 500;
 int missile_counter = 0;
@@ -17,10 +16,6 @@ Enemies Enemies;
 
 void setup() 
 {
-  pinMode(pin_left, INPUT_PULLUP);
-  pinMode(pin_right, INPUT_PULLUP);
-  pinMode(pin_fire, INPUT_PULLUP);
-
   gameEngine.addControl(&spaceShip);
   gameEngine.addControl(&Enemies);
   gameEngine.start();
@@ -28,17 +23,19 @@ void setup()
 
 void loop() 
 {
-  if (digitalRead(pin_left) == LOW) {
+  int key = readKey(0);
+
+  if (key == KEY_LEFT) {
     spaceShip.x--;
     if (spaceShip.x < 4) spaceShip.x = 4;
   }
   
-  if (digitalRead(pin_right) == LOW) {
+  if (key == KEY_RIGHT) {
     spaceShip.x++;
     if (spaceShip.x > 78) spaceShip.x = 78;    
   }
   
-  if ((digitalRead(pin_fire) == LOW) && spaceShip.getEnabled() && (missile_counter >= missile_interval)) {
+  if ((key == KEY_FIRE) && spaceShip.getEnabled() && (missile_counter >= missile_interval)) {
     sound_effect_fire(gameEngine.getAudioTrack());
     missile_counter = 0;
     Missile *missile = new Missile(spaceShip.x, spaceShip.y);
