@@ -5,6 +5,8 @@ void setup() {
 }
 
 void loop() {
-  int temp = readKey(0);
+  int temp = readKey(0, 168);
   if (temp > 0) Serial.println(temp);
+
+//  Serial.println(analogRead(0));
 }
