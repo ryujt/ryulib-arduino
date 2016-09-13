@@ -1,13 +1,8 @@
 #include <RyuGame.h>
+#include <analog_keyboard.h>
 #include "Globals.h"
 #include "Snake.h"
 #include "Foods.h"
-
-int pin_left  = 3;
-int pin_right = 4;
-int pin_up    = 6;
-int pin_down  = 7;
-int pin_fire  = 8;
 
 // 게임 종료 처리가 된 적이 있는 가?
 bool is_game_end_fire = false;
@@ -17,12 +12,6 @@ Snake snake;
 Foods foods;
 
 void setup() {
-  pinMode(pin_left,  INPUT_PULLUP);
-  pinMode(pin_right, INPUT_PULLUP);
-  pinMode(pin_up,    INPUT_PULLUP);
-  pinMode(pin_down,  INPUT_PULLUP);
-  pinMode(pin_fire,  INPUT_PULLUP);
-
   gameEngine.addControl(&snake);
   gameEngine.addControl(&foods);
   gameEngine.start();
@@ -39,10 +28,13 @@ void loop() {
     sound_effect_game_end(gameEngine.getAudioTrack());   
   }
 
-  if (digitalRead(pin_left) == LOW) snake.setDX(-1);
-  if (digitalRead(pin_right) == LOW) snake.setDX(1);
-  if (digitalRead(pin_up) == LOW) snake.setDY(-1);
-  if (digitalRead(pin_down) == LOW) snake.setDY(1);
+  int key = readKey(0);
+  switch(key) {
+    case KEY_LEFT:  snake.setDX(-1); break;
+    case KEY_RIGHT: snake.setDX( 1); break;
+    case KEY_UP:    snake.setDY(-1); break;
+    case KEY_DOWN:  snake.setDY( 1); break;
+  }
 
   int tick = gameEngine.update();
 
