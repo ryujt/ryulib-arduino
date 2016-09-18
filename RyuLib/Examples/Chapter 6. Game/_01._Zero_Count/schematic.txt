@@ -1,0 +1,14 @@
+Jumper 10mm: Vcc - a12
+Jumper 8mm:  Gnd - a14
+Jumper 10mm: j12 - Gnd
+
+Jumper 10mm: j30 - Gnd
+
+TM1637(LED Tube): 
+  . Vcc, Gnd 
+  . CLK: j11
+  . DIO: j10
+
+Button Switch: f28 - f30
+
+Jumper MM: j28 - j9

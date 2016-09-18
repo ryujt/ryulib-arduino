@@ -1,0 +1,12 @@
+Jumper 10mm: Vcc - a12
+Jumper 8mm:  Gnd - a14
+Jumper 10mm: j12 - Gnd
+
+TM1637(LED Tube): 
+  . Vcc, Gnd 
+  . CLK: j10
+  . DIO: j9
+
+Mercury Switch: j11 - Gnd
+
+Buzzer: Gnd - a1
