@@ -6,6 +6,7 @@
 bool GameControlBase::checkCollisionWith(GameControlBase *control)
 {
 	if (_IsEnabled == false) return false;
+	if (control->_IsEnabled == false) return false;
 
 	int hit_size = _HitSize + control->_HitSize;
 
