@@ -1,0 +1,47 @@
+Breadboad A
+
+	Jumper 10mm: Vcc - a12
+	Jumper 8mm: Gnd - a14
+	Jumper 10mm: j12 - Gnd
+
+	Buzzer: Gnd - a1
+
+Breadboad B
+	R 10K: j1 - Vcc
+	R 10K: j4 - Vcc
+	R 10K: j7 - Vcc
+	R 10K: j10 - Vcc
+	R 10K: j13 - Vcc
+	R 10K: j16 - Vcc
+	R 10K: j19 - Vcc
+	R 10K: j22 - Vcc
+
+	Jumper 10mm: j2 - Gnd
+	Jumper 10mm: j5 - Gnd
+	Jumper 10mm: j8 - Gnd
+	Jumper 10mm: j11 - Gnd
+	Jumper 10mm: j14- Gnd
+	Jumper 10mm: j17- Gnd
+	Jumper 10mm: j20 - Gnd
+	Jumper 10mm: j23 - Gnd
+
+	CDS: f1 - f2
+	CDS: f4 - f5
+	CDS: f7 - f8
+	CDS: f10 - f11
+	CDS: f13 - f14
+	CDS: f16 - f16
+	CDS: f19 - f20
+	CDS: f22- f23
+
+Jumper MM: B.i1 - A.a4
+Jumper MM: B.i4 - A.a5
+Jumper MM: B.i7 - A.a6
+Jumper MM: B.i10 - A.a7
+Jumper MM: B.i13 - A.a8
+Jumper MM: B.i16 - A.a9
+Jumper MM: B.i19 - A.a10
+Jumper MM: B.i22 - A.a11
+
+Jumper MM: B.Vcc - A.Vcc
+Jumper MM: B.Gnd - A.Gnd
