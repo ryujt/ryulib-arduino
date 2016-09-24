@@ -9,4 +9,4 @@ Jumper MM: a28 - j9
 Jumper MM: a29 - j10
 Jumper MM: a30 - j11
 
-LED Matrix(MAX7219): e27, e28, e29, e30
+LED Matrix(MAX7219): e26(Vcc), e27(Gnd), e28(DIN), e29(CS), e30(CLK)
