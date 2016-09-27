@@ -1,16 +1,15 @@
 #include "ir_utils.h"
 
-int a_01 = 3;  
-int a_02 = 5; 
-int b_01 = 6;
-int b_02 = 9;
+const int a_01 = 2;  
+const int a_02 = 3; 
+const int b_01 = 4;
+const int b_02 = 5;
 
-int speed_a = 255;
-int speed_b = 255;
-    
-IR ir(2);
+IR ir(9);
 
 void setup() {
+  Serial.begin(9600);
+  
   ir.begin();
 
   pinMode(a_01, OUTPUT);
@@ -21,44 +20,48 @@ void setup() {
 
 void loop() {
   unsigned long result = ir.read();
+
+  if (result == 0) return;
+
+  Serial.println(result);
   
   // forward
-  if (result == 16615543) {
-    analogWrite(a_01, speed_a);
-    analogWrite(a_02, 0);
-    analogWrite(b_01, speed_b);
-    analogWrite(b_02, 0);
+  if (result == 16736925) {
+    digitalWrite(a_01, HIGH);
+    digitalWrite(a_02, LOW);
+    digitalWrite(b_01, HIGH);
+    digitalWrite(b_02, LOW);
   }
 
   //  backward
-  if (result == 16619623) {
-    analogWrite(a_01, 0);
-    analogWrite(a_02, speed_a);
-    analogWrite(b_01, 0);
-    analogWrite(b_02, speed_b);
+  if (result == 16754775) {
+    digitalWrite(a_01, LOW);
+    digitalWrite(a_02, HIGH);
+    digitalWrite(b_01, LOW);
+    digitalWrite(b_02, HIGH);
   }
 
   //  left
-  if (result == 16591063) {
-    analogWrite(a_01, speed_a);
-    analogWrite(a_02, 0);
-    analogWrite(b_01, 0);
-    analogWrite(b_02, speed_b);
+  if (result == 16720605) {
+    digitalWrite(a_01, HIGH);
+    digitalWrite(a_02, LOW);
+    digitalWrite(b_01, LOW);
+    digitalWrite(b_02, HIGH);
   }
 
   //  right
-  if (result == 16607383) {
-    analogWrite(a_01, 0);
-    analogWrite(a_02, speed_a);
-    analogWrite(b_01, speed_b);
-    analogWrite(b_02, 0);  
+  if (result == 16761405) {
+    digitalWrite(a_01, LOW);
+    digitalWrite(a_02, HIGH);
+    digitalWrite(b_01, HIGH);
+    digitalWrite(b_02, LOW);  
   }
 
   // stop
-  if (result == 16623703) {
-    analogWrite(a_01, 0);
-    analogWrite(a_02, 0);
-    analogWrite(b_01, 0);
-    analogWrite(b_02, 0);
+  if (result == 16712445) {
+    digitalWrite(a_01, LOW);
+    digitalWrite(a_02, LOW);
+    digitalWrite(b_01, LOW);
+    digitalWrite(b_02, LOW);
   } 
 }
