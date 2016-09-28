@@ -15,7 +15,8 @@ void setup() {
   seR2D2(13);
 }
 
-long int count_interval = 10000;
+const long int count_interval = 10000;
+
 long int count = count_interval * 6;
 
 bool is_game_end      = false;

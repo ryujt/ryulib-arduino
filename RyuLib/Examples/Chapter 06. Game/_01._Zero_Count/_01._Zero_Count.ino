@@ -14,7 +14,11 @@ void setup() {
     }
   }
   
-  uint8_t data[] = { 0b00111111, 0b000011100, 0b01111001, 0b01110010 };
+  uint8_t data[4];
+  data[0] = 0b00111111;
+  data[1] = 0b000011100;
+  data[2] = 0b01111001;
+  data[3] = 0b01110010;
   display.setSegments(data);
 }
 
