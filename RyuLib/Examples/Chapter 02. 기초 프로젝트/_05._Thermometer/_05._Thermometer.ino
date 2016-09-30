@@ -5,7 +5,7 @@ TM1637Display display(2, 3);
 
 void setup() {
   Serial.begin(9600);
-  display.setBrightness(0x0f);
+  display.setBrightness(16);
 }
 
 void loop() {
