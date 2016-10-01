@@ -5,7 +5,7 @@ TM1637Display display(2, 3);
 void setup() {
   pinMode(4, INPUT_PULLUP);
   
-  display.setBrightness(16);
+  display.setBrightness(15);
   for (int i=999; i>=0; i--) {
     display.showNumberDec(i);             
         
