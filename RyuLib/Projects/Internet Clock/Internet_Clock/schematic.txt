@@ -9,8 +9,8 @@ Jumper FM: RTC.CLK - a6
 Jumper FM: RTC.DAT - a7
 Jumper FM: RTC.RST - a8
 
-Jumper FM: TM1637D.Vcc - Vcc
-Jumper FM: TM1637D.Gnd - Gnd
-Jumper FM: TM1637D.CLK - a11
-Jumper FM: TM1637D.DIO - a13
+Jumper FM: TM1637.Vcc - Vcc
+Jumper FM: TM1637.Gnd - Gnd
+Jumper FM: TM1637.CLK - a11
+Jumper FM: TM1637.DIO - a13
 
