@@ -3,10 +3,7 @@
 #include <RF24.h>
 #include <TM1637Display.h>
 
-#define CE_PIN 7
-#define CSN_PIN 8
-
-const uint64_t pipe = 0xE8E8F0F0E1LL;
+const uint64_t pipe = 0x12E8F0F0E1LL;
 
 RF24 radio(7, 8);
 int valarray[2];
