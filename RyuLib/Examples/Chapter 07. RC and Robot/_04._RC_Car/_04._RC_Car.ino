@@ -1,16 +1,25 @@
-#include "ir_utils.h"
+#include <SPI.h>
+#include <nRF24L01.h>
+#include <RF24.h>
+#include <analog_keyboard.h>
+
+const uint64_t pipe = 0x12E8F0F0E1LL;
+
+RF24 radio(7, 8);
+int data[2];
 
 const int a_01 = 2;  
 const int a_02 = 3; 
 const int b_01 = 4;
 const int b_02 = 5;
 
-IR ir(9);
-
 void setup() {
-  Serial.begin(9600);
+//  Serial.begin(9600);
+//  Serial.println("setup");
   
-  ir.begin();
+  radio.begin();
+  radio.openReadingPipe(1,pipe);
+  radio.startListening();
 
   pinMode(a_01, OUTPUT);
   pinMode(a_02, OUTPUT);
@@ -18,15 +27,19 @@ void setup() {
   pinMode(b_02, OUTPUT);
 }
 
+int command = 0;
+
 void loop() {
-  unsigned long result = ir.read();
+  while (radio.available()) {
+    radio.read(data, sizeof(data));
 
-  if (result == 0) return;
-
-  Serial.println(result);
+    command = data[0];
+    
+//    Serial.println(data[0]);
+  }
   
   // forward
-  if (result == 16736925) {
+  if (command == KEY_UP) {
     digitalWrite(a_01, HIGH);
     digitalWrite(a_02, LOW);
     digitalWrite(b_01, HIGH);
@@ -34,7 +47,7 @@ void loop() {
   }
 
   //  backward
-  if (result == 16754775) {
+  if (command == KEY_DOWN) {
     digitalWrite(a_01, LOW);
     digitalWrite(a_02, HIGH);
     digitalWrite(b_01, LOW);
@@ -42,7 +55,7 @@ void loop() {
   }
 
   //  left
-  if (result == 16720605) {
+  if (command == KEY_LEFT) {
     digitalWrite(a_01, HIGH);
     digitalWrite(a_02, LOW);
     digitalWrite(b_01, LOW);
@@ -50,7 +63,7 @@ void loop() {
   }
 
   //  right
-  if (result == 16761405) {
+  if (command == KEY_RIGHT) {
     digitalWrite(a_01, LOW);
     digitalWrite(a_02, HIGH);
     digitalWrite(b_01, HIGH);
@@ -58,7 +71,7 @@ void loop() {
   }
 
   // stop
-  if (result == 16712445) {
+  if (command == KEY_FIRE) {
     digitalWrite(a_01, LOW);
     digitalWrite(a_02, LOW);
     digitalWrite(b_01, LOW);
