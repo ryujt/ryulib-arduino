@@ -16,7 +16,6 @@ void setup() {
 }
 
 const long int count_interval = 10000;
-
 long int count = count_interval * 6;
 
 bool is_game_end      = false;
@@ -41,18 +40,14 @@ void loop() {
   digitalWrite(4, LOW);
   digitalWrite(5, LOW);
   digitalWrite(6, LOW);
-  
-  switch (count / count_interval) {
-    case 0:
-    case 1: { 
-      digitalWrite(4, HIGH); 
-      count = 0;
-    } break;
-    
-    case 2:
-    case 3: digitalWrite(5, HIGH); break;
-    
-    default: digitalWrite(6, HIGH); 
+
+  if (count > (count_interval * 4)) {
+    digitalWrite(6, HIGH); 
+  } else if (count > (count_interval * 2)) {
+    digitalWrite(5, HIGH); break;
+  } else {
+    digitalWrite(4, HIGH); 
+    count = 0;
   }
 
   if (count > 0) count--;
