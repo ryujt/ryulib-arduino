@@ -3,8 +3,7 @@ void setup() {
 }
 
 void loop() {
-  int temp;
-  temp = analogRead(0);
+  int temp = analogRead(0);
 
   Serial.println(temp);
 
