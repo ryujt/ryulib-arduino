@@ -1,13 +1,11 @@
-int pin_motor = 5;
-
 void setup() {
-  pinMode(pin_motor, OUTPUT);
+  pinMode(2, OUTPUT);
 }
 
 void loop() {
-  digitalWrite(pin_motor, HIGH);
-  delay(4000);
+  digitalWrite(2, HIGH);
+  delay(3000);
 
-  digitalWrite(pin_motor, LOW);
-  delay(4000);
+  digitalWrite(2, LOW);
+  delay(3000);
 }
