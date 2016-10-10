@@ -44,7 +44,7 @@ void loop() {
   if (count > (count_interval * 4)) {
     digitalWrite(6, HIGH); 
   } else if (count > (count_interval * 2)) {
-    digitalWrite(5, HIGH); break;
+    digitalWrite(5, HIGH); 
   } else {
     digitalWrite(4, HIGH); 
     count = 0;
