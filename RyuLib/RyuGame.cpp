@@ -108,6 +108,12 @@ void AudioTrack::clear()
 	_Duration = 0;
 }
 
+void  AudioTrack::playNow(int frequency, int duration)
+{
+	_Notes.add(0, frequency);
+	_Notes.add(0, duration);
+}
+
 void AudioTrack::play(int frequency, int duration)
 {
 	_Notes.add(frequency);
@@ -122,6 +128,12 @@ void AudioTrack::play(int frequency)
 void AudioTrack::stop()
 {
 	noTone(_PIN);
+	_Duration = 0;
+}
+
+int AudioTrack::get_count()
+{
+	return _Notes.size();
 }
 
 

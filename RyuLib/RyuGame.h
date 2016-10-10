@@ -90,9 +90,13 @@ public:
 
 	void clear();
 
+	void playNow(int frequency, int duration);
 	void play(int frequency, int duration);
 	void play(int frequency);
 	void stop();
+
+	/// How many notes remain to play.
+	int get_count();
 
 	friend class GameEngine;
 };
