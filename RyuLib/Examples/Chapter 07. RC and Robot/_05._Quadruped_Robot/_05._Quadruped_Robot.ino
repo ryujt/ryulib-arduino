@@ -9,6 +9,10 @@ const uint64_t pipe = 0xE8E8F0F0E1LL;
 RF24 radio(7, 8);
 int valarray[2];
 
+int arm_start_angle[] = { 150, 205, 180,  80 };
+int leg_down_angle[]  = { 140,   0, 180, 200 };
+int leg_up_angle[]    = {  80, 230, 230, 100 };
+
 void setup() {
 //  Serial.begin(9600);
 //  Serial.println("begin!!!");
@@ -38,7 +42,8 @@ void loop() {
     case KEY_FIRE: get_up(); break;
     case KEY_LEFT: turn_left(); break;
     case KEY_RIGHT: turn_right(); break;
-    case KEY_UP: go_forward_fast(); break;
+    case KEY_UP: forward(); break;
+    case KEY_DOWN: backward(); break;
   }
 }
 
