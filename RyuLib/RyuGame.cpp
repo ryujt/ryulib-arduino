@@ -110,6 +110,8 @@ void AudioTrack::clear()
 
 void  AudioTrack::playNow(int frequency, int duration)
 {
+	_Duration = 0;
+
 	_Notes.add(0, frequency);
 	_Notes.add(0, duration);
 }
