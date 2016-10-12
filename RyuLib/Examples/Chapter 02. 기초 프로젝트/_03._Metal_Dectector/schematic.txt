@@ -30,7 +30,7 @@ Tr 9012: h24 - h25 - h26 (]
 
 LED: Gnd - j27
 
-Buzzer: Gnd - a27
+Buzzer: Gnd - a1
 
 Coil 1: Vcc - b21
 Coil 2: Vcc - b22
