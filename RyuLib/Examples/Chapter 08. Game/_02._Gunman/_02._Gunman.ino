@@ -15,7 +15,7 @@ void setup() {
   seR2D2(13);
 }
 
-const long int count_interval = 10000;
+const long int count_interval = 20000;
 long int count = count_interval * 6;
 
 bool is_game_end      = false;
@@ -29,7 +29,7 @@ void loop() {
   if (digitalRead(8) == LOW) is_right_pressed = true;
 
   if (is_game_end) {
-    if (is_game_end_sound_done == false) seCloseEncounters(13);
+    if (is_game_end_sound_done == false) seChang(13);
     is_game_end_sound_done = true;
     
     return;

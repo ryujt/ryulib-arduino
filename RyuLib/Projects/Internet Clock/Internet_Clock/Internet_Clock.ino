@@ -7,8 +7,8 @@ const int MAX_CONNECT_TIME = 300;
 const int QUERY_INTERVAL = 3000;
 
 // TODO: change xxxx with your AP information
-const char* ssid = "xxxx";
-const char* password = "xxxx";
+const char* ssid = "ollehEgg_479";
+const char* password = "info88479";
 
 const char* host = "www.timeapi.org";
 const int httpsPort = 80;

@@ -3,7 +3,7 @@
 #include <RF24.h>
 #include <analog_keyboard.h>
 
-const uint64_t pipe = 0xE8E8F0F0E1LL;
+const uint64_t pipe = 0x0018F0F0E1LL;
 
 RF24 radio(7, 8);
 int valarray[2];
@@ -30,6 +30,9 @@ void loop() {
   else if (command > 100) command = KEY_UP;
   else command = KEY_LEFT;  
 
-  if (command > 0) valarray[0] = command; 
+  if (command > 0) {
+    Serial.println(command);
+    valarray[0] = command; 
+  }
   radio.write( valarray, sizeof(valarray) );
 }

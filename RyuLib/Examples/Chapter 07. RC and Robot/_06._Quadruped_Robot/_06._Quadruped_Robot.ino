@@ -4,7 +4,7 @@
 #include <analog_keyboard.h>
 #include <qadruped_robot.h>
 
-const uint64_t pipe = 0xE8E8F0F0E1LL;
+const uint64_t pipe = 0x0018F0F0E1LL;
 
 RF24 radio(7, 8);
 int valarray[2];
@@ -14,8 +14,8 @@ int leg_down_angle[]  = { 140,   0, 180, 200 };
 int leg_up_angle[]    = {  80, 230, 230, 100 };
 
 void setup() {
-//  Serial.begin(9600);
-//  Serial.println("begin!!!");
+  Serial.begin(9600);
+  Serial.println("begin!!!");
   
   radio.begin();
   radio.openReadingPipe(1,pipe);
@@ -35,7 +35,7 @@ void loop() {
 
     command = valarray[0];
     
-//    Serial.println(valarray[0]);
+    Serial.println(valarray[0]);
   }
 
   switch (command) {

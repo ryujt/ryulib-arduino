@@ -13,8 +13,6 @@ RF24 radio(7, 8);
 int data[2];
 
 void setup() {
-  Serial.begin(9600);
-
   pinMode(pin_sw, INPUT_PULLUP);
 
   radio.begin();

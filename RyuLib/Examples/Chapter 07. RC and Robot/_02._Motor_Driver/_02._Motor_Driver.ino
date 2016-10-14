@@ -1,10 +1,7 @@
-int a_01 = 3;  
-int a_02 = 6; 
-int b_01 = 6;
-int b_02 = 9;
-
-int speed_a = 255;
-int speed_b = 255;
+const int a_01 = 2;  
+const int a_02 = 3; 
+const int b_01 = 4;
+const int b_02 = 5;
 
 void setup() 
 {
@@ -17,37 +14,37 @@ void setup()
 void loop() 
 {
   // forward
-  analogWrite(a_01, speed_a);
-  analogWrite(a_02, 0);
-  analogWrite(b_01, speed_b);
-  analogWrite(b_02, 0);
+  digitalWrite(a_01, HIGH);
+  digitalWrite(a_02, LOW);
+  digitalWrite(b_01, HIGH);
+  digitalWrite(b_02, LOW);
   delay(2000);
   
 //  backward
-  analogWrite(a_01, 0);
-  analogWrite(a_02, speed_a);
-  analogWrite(b_01, 0);
-  analogWrite(b_02, speed_b);
+  digitalWrite(a_01, LOW);
+  digitalWrite(a_02, HIGH);
+  digitalWrite(b_01, LOW);
+  digitalWrite(b_02, HIGH);
   delay(2000);
   
 //  left
-  analogWrite(a_01, speed_a);
-  analogWrite(a_02, 0);
-  analogWrite(b_01, 0);
-  analogWrite(b_02, speed_b);
+  digitalWrite(a_01, HIGH);
+  digitalWrite(a_02, LOW);
+  digitalWrite(b_01, LOW);
+  digitalWrite(b_02, HIGH);
   delay(2000);
   
 //  right
-  analogWrite(a_01, 0);
-  analogWrite(a_02, speed_a);
-  analogWrite(b_01, speed_b);
-  analogWrite(b_02, 0);
+  digitalWrite(a_01, LOW);
+  digitalWrite(a_02, HIGH);
+  digitalWrite(b_01, HIGH);
+  digitalWrite(b_02, LOW);  
   delay(2000);
 
   // stop
-  analogWrite(a_01, 0);
-  analogWrite(a_02, 0);
-  analogWrite(b_01, 0);
-  analogWrite(b_02, 0);
+  digitalWrite(a_01, LOW);
+  digitalWrite(a_02, LOW);
+  digitalWrite(b_01, LOW);
+  digitalWrite(b_02, LOW);
   delay(2000);
 }
