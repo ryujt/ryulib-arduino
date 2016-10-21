@@ -1,0 +1,16 @@
+Jumper 10mm: Vcc - a12
+Jumper  8mm: Gnd - a14
+Jumper 10mm: j12 - Gnd
+
+NRF24
+  . MISO      - j1
+  . SCK, MOSI - a1,  j2  
+  . CE,  CSN  - j6,  j7
+  . GND, VCC  - GND, VCC (Breadbaord, 왼쪽)
+
+Joy Stick
+  . Key - j11
+  . Y - a5
+  . X - a4
+  . VCC - VCC (Breadbaord)  
+  . GND - GND (Breadbaord)

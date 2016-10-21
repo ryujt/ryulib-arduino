@@ -1,0 +1,19 @@
+Jumper 10mm: Vcc - a12
+Jumper  8mm: Gnd - a14
+Jumper 10mm: j12 - Gnd
+
+Motor driver 
+  . IN1 - j11
+  . IN2 - j10
+  . IN3 - j9
+  . IN4 - j8
+  . GND - GND (Breadbaord 오른쪽)
+  . 12V - VCC (9V, Breadbaord 오른쪽)
+  . OUT1, OUT2 - 탱크의 오른쪽 모터
+  . OUT3, OUT4 - 탱크의 왼쪽 모터
+
+NRF24
+  . MISO      - j1
+  . SCK, MOSI - a1,  j2  
+  . CE,  CSN  - j6,  j7
+  . GND, VCC  - GND, VCC (Breadbaord, 왼쪽)
