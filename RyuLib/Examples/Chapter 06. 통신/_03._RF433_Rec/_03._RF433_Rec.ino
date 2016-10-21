@@ -28,7 +28,7 @@ void loop()
     char buf[12];
     uint8_t buflen = sizeof(buf);
     if (driver.recv((uint8_t *)buf, &buflen)) {
-      if (strncmp(buf, "HaeIn", 5) == 0) {
+      if (strncmp(buf, "Hi", 2) == 0) {
         old_tick = tick;
       }
       

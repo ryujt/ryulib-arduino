@@ -17,7 +17,5 @@ void setup() {
 
 void loop() {
   radio.write( valarray, sizeof(valarray) );
-
-//  valarray[0]++;
-//  valarray[1]++;
+  delay(1000);
 }

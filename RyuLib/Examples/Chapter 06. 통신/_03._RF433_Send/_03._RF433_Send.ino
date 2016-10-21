@@ -11,7 +11,7 @@ void setup()
 
 void loop()
 {
-    char *msg = "HaeIn";
+    char *msg = "Hi";
     driver.send((uint8_t *)msg, strlen(msg));
     driver.waitPacketSent();
     delay(100);

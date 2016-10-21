@@ -11,9 +11,9 @@ void loop() {
 
 	delay(300);
 
-	beep(3, note_E5, 300); 
-	beep(3, note_G5, 300); 
-	beep(3, note_G5, 300); 
+	beep(13, note_E5, 300); 
+	beep(13, note_G5, 300); 
+	beep(13, note_G5, 300); 
 
 	delay(300);
 
