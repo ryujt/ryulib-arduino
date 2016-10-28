@@ -5,11 +5,10 @@ void setup() {
 
 void loop() {
   if (digitalRead(12) == HIGH) {       
-    for (int i=0; i<10; i++) {
-      digitalWrite(13, HIGH);
-      delay(500);
-      digitalWrite(13, LOW);
-      delay(500);
-    }
+    tone(13, 1000);
+    delay(1000);
+    noTone(13);
   }
+  
+  delay(200);
 }
