@@ -5,7 +5,7 @@
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
 
-#define SERVO_INTERVAL 100
+#define SERVO_INTERVAL 150
 
 extern int arm_start_angle[];
 extern int leg_down_angle[];
@@ -18,7 +18,6 @@ void qadruped_robot_init();
 
 void leg_up(int n);
 void leg_down(int n);
-void leg_middle(int n);
 
 void arm_position(int n, int angle);
 void arm_start_position();
