@@ -33,12 +33,12 @@ void leg_test() {
 }
 
 void loop() {  
-//  down_up_test();
-//  delay(1000);
-//  
-//  leg_test();
-//  delay(1000);
-//  
+  down_up_test();
+  delay(1000);
+  
+  leg_test();
+  delay(1000);
+  
   turn_left();
   turn_left();
   delay(1000);
@@ -47,10 +47,10 @@ void loop() {
   turn_right();
   delay(1000);
 
-//  for (int i=0; i<4; i++) forward();
-//  delay(1000);
-//
-//  for (int i=0; i<4; i++) backward();
-//  delay(1000);
+  for (int i=0; i<4; i++) forward();
+  delay(1000);
+
+  for (int i=0; i<4; i++) backward();
+  delay(1000);
 }
 

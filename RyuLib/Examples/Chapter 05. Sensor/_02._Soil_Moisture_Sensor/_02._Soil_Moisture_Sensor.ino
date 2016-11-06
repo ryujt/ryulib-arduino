@@ -3,7 +3,8 @@ void setup() {
 }
 
 void loop() {
-  int humidity = analogRead(0);
+  int humidity;
+  humidity = analogRead(0);
 
   Serial.println(humidity);
 
