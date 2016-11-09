@@ -9,6 +9,12 @@ void setup()
   pinMode(a_02, OUTPUT);
   pinMode(b_01, OUTPUT);
   pinMode(b_02, OUTPUT);
+
+  pinMode(9, OUTPUT);
+  analogWrite(9, 100);
+
+  pinMode(10, OUTPUT);
+  analogWrite(10, 100);
 }
 
 void loop() 
