@@ -1,12 +1,25 @@
 void setup() {
-  for (int i=0; i<7; i++) {
-    pinMode(i+2, OUTPUT);
-    digitalWrite(i+2, LOW);
-  }
+  // TODO: 수업 중에 반복문으로 교체하여 반복문의 필요성 설명
+  pinMode(2, OUTPUT);
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(8, OUTPUT);
+  digitalWrite(2, LOW);
+  digitalWrite(3, LOW);
+  digitalWrite(4, LOW);
+  digitalWrite(5, LOW);
+  digitalWrite(6, LOW);
+  digitalWrite(7, LOW);
+  digitalWrite(8, LOW);
   
+  // TODO: 버턴을 사용하는 방법으로 변경
   srand(analogRead(0));
   int no = (rand() % 6) + 1;
   
+  // TODO: 수업 중에 switch문으로 교체하여 반복문의 필요성 설명
   if (no == 1) {
     digitalWrite(8, HIGH);
   }
