@@ -6,6 +6,7 @@
 Adafruit_PCD8544 lcd(2, 3, 4, 5, 6);
 
 int index = 0;
+int old_index = -1;
 int count = 0;
 
 int angles[4] = {10, 10, 10, 10};
@@ -15,10 +16,6 @@ void setup() {
   lcd.begin();
   lcd.clearDisplay();
   lcd.display();
-
-  for (int i=0; i<4; i++) {
-    motors[i].attach(i+8); 
-  }   
 }
 
 void loop() {
@@ -69,10 +66,14 @@ void loop() {
   
   lcd.display();
 
-  for (int i=0; i<4; i++) {
-    motors[i].write(angles[i]); 
-  }   
+  if (index != old_index) {
+    if (old_index != -1) motors[old_index].detach(); 
+    motors[index].attach(index+8); 
+    old_index = index;
+  }
   
+  motors[index].write(angles[index]); 
+
   delay(10);
 }
 
