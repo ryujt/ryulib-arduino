@@ -1,0 +1,23 @@
+Jumper 10mm: (+) - a12
+Jumper  8mm: (-) - a14
+Jumper 10mm: j12 - (-)
+
+Jumper 10mm: j22 - (-)
+Jumper 10mm: 226 - (-)
+
+Push Button: i20 - i22
+Push Button: i24 - i26
+
+Jumper Female to Male : TM1637.VCC - (+)
+Jumper Female to Male : TM1637.GND - (-)
+Jumper Female to Male : TM1637.CLK - j11
+Jumper Female to Male : TM1637.DIO - j10
+
+Jumper Female to Male : Clock.VCC - (+)
+Jumper Female to Male : Clock.GND - (-)
+Jumper Female to Male : Clock.CLK - j6
+Jumper Female to Male : Clock.DAT - j7
+Jumper Female to Male : Clock.RST - j8
+
+Jumper Male to Male : j3 - f20
+Jumper Male to Male : j4 - f24
