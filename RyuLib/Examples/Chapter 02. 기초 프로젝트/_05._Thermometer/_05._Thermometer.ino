@@ -13,5 +13,5 @@ void loop() {
 
   display.showNumberDec( ThermistorToC(temp) );
 
-  delay(500);
+  delay(100);
 }

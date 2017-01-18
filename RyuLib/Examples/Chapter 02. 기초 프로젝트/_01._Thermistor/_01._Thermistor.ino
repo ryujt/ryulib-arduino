@@ -10,5 +10,5 @@ void loop() {
 
   Serial.println( ThermistorToC(temp) );
 
-  delay(1000);
+  delay(100);
 }

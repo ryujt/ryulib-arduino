@@ -1,0 +1,27 @@
+Jumper 10mm: (+) - a12
+Jumper  8mm: (-) - a14
+Jumper 10mm: j12 - (-)
+
+Jumper 10mm: (+) - a23
+Jumper  8mm: (-) - a26
+
+저항 10K 옴: (-) - a20 
+저항 330 옴: e27 - f27 
+
+Jumper Male to Male : b20 - b4
+Jumper Male to Male : j27 - j11
+
+온도 센서 (thermistor): e20 - e23
+
+트랜지스터 2N2222 (]
+  . Collector: c26
+  . base:      c27
+  . Emitter:   c28
+
+Jumper Female to Male : (+) - 쿨링팬 빨간색 쪽
+Jumper Female to Male : (-) - 쿨링팬 파란색 쪽
+
+
+* 트랜지스터 넓쩍한 면이 오른쪽을 보도록 꼽아 줍니다.
+* (+)는 빵판의 왼쪽 빨간색 라인입니다.
+* (-)는 빵판의 양쪽 파란색 라인 전부 사용 할 수 있습니다.

@@ -1,7 +1,7 @@
 #include <thermistor.h>
 
 void setup() {
-  pinMode(13, OUTPUT); 
+  pinMode(2, OUTPUT); 
 }
 
 void loop() {
@@ -9,11 +9,11 @@ void loop() {
   temp = analogRead(0);
 
   if (ThermistorToC(temp) > 30) {
-    digitalWrite(13, HIGH); 
+    digitalWrite(2, HIGH); 
   } else {
-    digitalWrite(13, LOW); 
+    digitalWrite(2, LOW); 
   }
 
-  delay(1000);
+  delay(100);
 }
 

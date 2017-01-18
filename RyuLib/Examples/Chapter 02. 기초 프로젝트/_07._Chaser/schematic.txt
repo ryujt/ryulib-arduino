@@ -1,20 +1,45 @@
-R 330: Gnd - a20
-R 330: Gnd - a22
-R 330: Gnd - a24
-R 330: Gnd - a26
-R 330: Gnd - a28
-R 330: Gnd - a30
+Jumper 10mm: (+) - a12
+Jumper  8mm: (-) - a14
+Jumper 10mm: j12 - (-)
 
-LED: b19 - b20
-LED: b21 - b22
-LED: b23 - b24
-LED: b25 - b26
-LED: b27 - b28
-LED: b29 - b30
+저항 330 옴: (-) - a20
+저항 330 옴: (-) - a22
+저항 330 옴: (-) - a24
+저항 330 옴: (-) - a26
+저항 330 옴: (-) - a28
+저항 330 옴: (-) - a30
 
-Jumper: e19 - j06
-Jumper: e21 - j07
-Jumper: e23 - j08
-Jumper: e25 - j09
-Jumper: e27 - j10
-Jumper: e29 - j11
+LED
+  . 긴 다리:   b19
+  . 짧은 다리: b20
+
+LED
+  . 긴 다리:   b21
+  . 짧은 다리: b22
+
+LED
+  . 긴 다리:   b23
+  . 짧은 다리: b24
+
+LED
+  . 긴 다리:   b25
+  . 짧은 다리: b26
+
+LED
+  . 긴 다리:   b27
+  . 짧은 다리: b28
+
+LED
+  . 긴 다리:   b29
+  . 짧은 다리: b30
+
+Jumper Male to Male: e19 - j06
+Jumper Male to Male: e21 - j07
+Jumper Male to Male: e23 - j08
+Jumper Male to Male: e25 - j09
+Jumper Male to Male: e27 - j10
+Jumper Male to Male: e29 - j11
+
+
+* (+)는 빵판의 왼쪽 빨간색 라인입니다.
+* (-)는 빵판의 양쪽 파란색 라인 전부 사용 할 수 있습니다.

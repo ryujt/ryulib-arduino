@@ -1,23 +1,20 @@
-const int pin_echo = 10;
-const int pin_trig = 11;
-
 void setup()
 {
   Serial.begin(9600);
 
-  pinMode(pin_echo, INPUT); 
-  pinMode(pin_trig, OUTPUT); 
+  pinMode(10, INPUT); 
+  pinMode(11, OUTPUT); 
 }
 
 void loop()
 {
   long duration, cm;
 
-  digitalWrite(pin_trig, HIGH); 
+  digitalWrite(11, HIGH); 
   delay(10); 
-  digitalWrite(pin_trig, LOW);
+  digitalWrite(11, LOW);
 
-  duration = pulseIn(pin_echo, HIGH); 
+  duration = pulseIn(10, HIGH); 
   cm = microsecondsToCentimeters(duration); 
   
   Serial.println(cm);

@@ -4,16 +4,15 @@ Jumper 10mm: j12 - (-)
 
 Jumper 10mm: (+) - a23
 
+부저
+  . + 가 표시 된 쪽의 다리: a1
+  . 표시가 없는 쪽의 다리:  (-)
+
 저항 10K 옴: (-) - a20 
 
 Jumper Male to Male : b20 - b4
 
-온도 센서 (thermistor): e20 - e23
-
-Jumper Female to Male : TM1637.VCC - (+)
-Jumper Female to Male : TM1637.GND - (-)
-Jumper Female to Male : TM1637.CLK - j11
-Jumper Female to Male : TM1637.DIO - j10
+빛 밝기 센서 (CDS 셀): e20 - e23
 
 
 * (+)는 빵판의 왼쪽 빨간색 라인입니다.

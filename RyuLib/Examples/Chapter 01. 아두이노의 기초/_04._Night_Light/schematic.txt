@@ -5,16 +5,18 @@ Jumper 10mm: j12 - (-)
 Jumper 10mm: (+) - a23
 
 저항 10K 옴: (-) - a20 
+저항 100 옴: j21 - (-) 
 
 Jumper Male to Male : b20 - b4
+Jumper Male to Male : j11 - j20
 
-온도 센서 (thermistor): e20 - e23
+빛 밝기 센서 (CDS 셀): e20 - e23
 
-Jumper Female to Male : TM1637.VCC - (+)
-Jumper Female to Male : TM1637.GND - (-)
-Jumper Female to Male : TM1637.CLK - j11
-Jumper Female to Male : TM1637.DIO - j10
+밝은 LED
+  . 긴다리:    h20
+  . 짧은 다리: h21
 
 
+* 밝은 LED는 "straw hat wide angle LED"로 검색해보시기 바랍니다.
 * (+)는 빵판의 왼쪽 빨간색 라인입니다.
 * (-)는 빵판의 양쪽 파란색 라인 전부 사용 할 수 있습니다.

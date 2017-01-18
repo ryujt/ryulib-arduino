@@ -1,12 +1,10 @@
 #include <RH_ASK.h>
 #include <SPI.h>
 
-RH_ASK driver;
+RH_ASK sender;
 
 void setup()
 {
-//    Serial.begin(9600);
-//    if (!driver.init()) Serial.println("init failed");
 }
 
 void loop()

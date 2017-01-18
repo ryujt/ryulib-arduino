@@ -1,0 +1,13 @@
+Jumper 10mm: (+) - a12
+Jumper  8mm: (-) - a14
+Jumper 10mm: j12 - (-)
+
+Jumper Female to Male : Sensor.VCC  - (+)
+Jumper Female to Male : Sensor.GND  - (-)
+Jumper Female to Male : Sensor.Trig - j2
+Jumper Female to Male : Sensor.Echo - j3
+
+
+* Sensor 초음파 센서를 의미합니다.
+* (+)는 빵판의 왼쪽 빨간색 라인입니다.
+* (-)는 빵판의 양쪽 파란색 라인 전부 사용 할 수 있습니다.

@@ -1,33 +1,52 @@
-Jumper 10mm: Vcc - a12
-Jumper 8mm:  Gnd - a14
-Jumper 10mm: j12 - Gnd
+Jumper 10mm: (+) - a12
+Jumper  8mm: (-) - a14
+Jumper 10mm: j12 - (-)
 
-Jumper 8mm:  Gnd - a30
-Jumper 10mm: j30 - Gnd
+Jumper 8mm:  (-) - a30
+Jumper 10mm: j30 - (-)
 
-R 330: Gnd - a18
-R 330: Gnd - a20
-R 330: Gnd - a22
+부저
+  . + 가 표시 된 쪽의 다리: a1
+  . 표시가 없는 쪽의 다리:  (-)
 
-R 330: Gnd - a25
-R 330: j25 - Gnd
+저항 330 옴: (-) - a18
+저항 330 옴: (-) - a20
+저항 330 옴: (-) - a22
 
-LED Green:  e18 - f18 (Vcc)
-LED Yellow: e20 - f20 (Vcc)
-LED Red:    e22 - f22 (Vcc)
+저항 330 옴: (-) - a25
+저항 330 옴: j25 - (-)
 
-LED Red:    b25 - b26 (Vcc)
-LED Red:    i25 - i26 (Vcc)
+LED 초록색
+  . 짧은 다리: e18
+  . 긴 다리:   f18
+
+LED 노란색
+  . 짧은 다리: e20
+  . 긴 다리:   f20
+
+LED 빨간색
+  . 짧은 다리: e22
+  . 긴 다리:   f22
+
+LED 빨간색
+  . 짧은 다리: b25
+  . 긴 다리:   b26
+  
+LED 빨간색
+  . 짧은 다리: i25
+  . 긴 다리:   i26
 
 Button Switch: c28 - c30
 Button Switch: h28 - h30
 
-Jumper MM: j5  - e28
-Jumper MM: j6  - j28
-Jumper MM: j7  - j18
-Jumper MM: j8  - j20
-Jumper MM: j9  - j22
-Jumper MM: j10 - e26
-Jumper MM: j11 - f26
+Jumper Male to Male: j5  - e28
+Jumper Male to Male: j6  - j28
+Jumper Male to Male: j7  - j18
+Jumper Male to Male: j8  - j20
+Jumper Male to Male: j9  - j22
+Jumper Male to Male: j10 - e26
+Jumper Male to Male: j11 - f26
 
-Buzzer: Gnd - a1
+
+* (+)는 빵판의 왼쪽 빨간색 라인입니다.
+* (-)는 빵판의 양쪽 파란색 라인 전부 사용 할 수 있습니다.

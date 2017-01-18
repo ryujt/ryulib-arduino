@@ -22,12 +22,12 @@ void loop() {
   if (is_detected) {
     if (value > max) max = value;
     display.setBrightness(15);
-    display.showNumberDec( max / 2 );
+    display.showNumberDec(max);
     tone(13, 400);
   } else {
     max = 0;
     display.setBrightness(0);
-    display.showNumberDec( 0 );
+    display.showNumberDec(0);
     noTone(13);
   }
   
