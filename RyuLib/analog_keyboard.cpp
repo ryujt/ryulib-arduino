@@ -1,6 +1,6 @@
 #include <analog_keyboard.h>
 
-int readKey(int pin, int type=4884) {
+int readKey(int pin, int type) {
   int temp = analogRead(pin);	
 
   if (type == 168) {
