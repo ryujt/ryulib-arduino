@@ -34,14 +34,14 @@ public:
 		if ((WiFi.status() != WL_CONNECTED) && (connect_count_ <= 0)) {
 			connect_count_ = 5000;
 			WiFi.begin(ssid_, password_);
-			// Serial.println("(WiFi.status() != WL_CONNECTED) && (connect_count <= 0)");
+			Serial.println("(WiFi.status() != WL_CONNECTED) && (connect_count <= 0)");
 			return;
 		}
+	}
 
-		if (WiFi.status() != WL_CONNECTED) {
-			// Serial.println("WiFi.status() != WL_CONNECTED");
-			return;
-		}
+	bool isConnected()
+	{
+		return WiFi.status() == WL_CONNECTED;
 	}
 };
 
