@@ -25,8 +25,8 @@ void loop()
   }
   
   uint8_t data[] = { 0b00000000, 0b00000000, 0b00000000, 0b00000000 };
-
   clock.setSegments(data);
   display.setSegments(data);
+
   delay(100);  
 }
