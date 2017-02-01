@@ -17,5 +17,5 @@ void loop() {
 
   if (digitalRead(4) == LOW) is_stopped = true;
 
-  if (count == -1) display.setBrightness(0);    
+  if (count < 0) display.setBrightness(0);    
 }

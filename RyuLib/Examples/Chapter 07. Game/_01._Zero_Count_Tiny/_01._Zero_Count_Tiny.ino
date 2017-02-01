@@ -1,22 +1,21 @@
 #include <TM1637Display.h>
 
+int count = 1000;
+bool is_stopped = false;
 TM1637Display display(3, 4);
 
 void setup() {
   pinMode(1, INPUT_PULLUP);
-  
   display.setBrightness(15);
-  for (int i=999; i>=0; i--) {
-    display.showNumberDec(i);             
-        
-    if (digitalRead(1) == LOW) {
-      return;
-    }
-  }
-  
-  uint8_t data[] = { 0b00111111, 0b000011100, 0b01111001, 0b01110010 };
-  display.setSegments(data);
 }
 
 void loop() {
+  if (is_stopped) return;
+  
+  if (count >= 0) count = count - 1;
+  display.showNumberDec(count);    
+
+  if (digitalRead(1) == LOW) is_stopped = true;
+
+  if (count < 0) display.setBrightness(0);    
 }
