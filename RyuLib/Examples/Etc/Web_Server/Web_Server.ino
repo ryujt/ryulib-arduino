@@ -1,7 +1,8 @@
 #include <wifi_tools.h>
 
 
-WiFiConnector connector("U+NetA108", "DD6E018473");
+// 자신의 WIFI(공유기)의 SSID와 비번을 입력하세요
+WiFiConnector connector("xxxx", "xxxx");
 WiFiServer server(80);
 
 

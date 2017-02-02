@@ -16,10 +16,10 @@ public:
 	{
 	}
 
-	void get(char *host, int port, char *url)
+	void get(char *host, int port, String url)
 	{
 		if (!client_.connect(host, port)) {
-			// Serial.println("!client_.connect(host_, post_)");
+			Serial.println("!client_.connect(host_, post_)");
 			return;
 		}
 

@@ -9,14 +9,21 @@
 class WiFiConnector
 {
 private:
+	// 처음으로 접속 된 순간을 감지하기 위하여
+	bool on_connected_;
+
+	// 처음으로 접속 된 것을 이미 처리하였는가?
+	bool on_connected_fired_;
+
 	long old_tick_;
 	int connect_count_;
 
 	char *ssid_;
 	char *password_;
 public:
-	WiFiConnector(char *ssid, char *password)
-		: old_tick_(0), connect_count_(0),
+	WiFiConnector(char *ssid, char *password)	
+		: on_connected_(false), on_connected_fired_(false),
+		  old_tick_(0), connect_count_(0),
 		  ssid_(ssid), password_(password)
 	{
 	}
@@ -37,11 +44,28 @@ public:
 			Serial.println("(WiFi.status() != WL_CONNECTED) && (connect_count <= 0)");
 			return;
 		}
+
+		if ((on_connected_fired_ == false) && (WiFi.status() == WL_CONNECTED)) {
+			on_connected_fired_ = true;
+			on_connected_ = true;
+		}
 	}
 
+	/// 현재 접속 중인가?
 	bool isConnected()
 	{
 		return WiFi.status() == WL_CONNECTED;
+	}
+
+	/// 접속 된 이후로 처음 호출 되었는가?
+	bool onConnected()
+	{
+		if (on_connected_) {
+			on_connected_ = false;
+			return true;
+		}
+
+		return false;
 	}
 };
 
