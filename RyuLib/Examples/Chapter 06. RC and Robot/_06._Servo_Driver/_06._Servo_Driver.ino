@@ -2,8 +2,8 @@
 
 Adafruit_PWMServoDriver servos = Adafruit_PWMServoDriver(0x40);
 
-int pos0   = 172; // 0°
-int pos180 = 565; // 180°  
+const int pos0   = 172; // 0°
+const int pos180 = 565; // 180°
 
 void setup() {
   Serial.begin(9600);
