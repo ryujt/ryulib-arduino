@@ -11,7 +11,19 @@ SoftwareSerial bluetooth(2, 3);
 Interval interval(20);
 Adafruit_PWMServoDriver servos = Adafruit_PWMServoDriver(0x40);
 
+int index = -1;
 int angles[SERVO_COUNT] = {254, 325, 528, 446, 222, 200};
+
+void initPosition() {
+  int temp[SERVO_COUNT] = {254, 325, 528, 446, 222, 200};  
+  
+  for (int i = 0; i < SERVO_COUNT; i++) {
+    angles[i] = temp[i];
+    servos.setPWM(i, 0, angles[i]);
+  }
+  
+  index = -1;
+}
 
 void setup() {
   Serial.begin(9600);
@@ -19,14 +31,11 @@ void setup() {
 
   servos.begin();  
   servos.setPWMFreq(60); 
-  
-  for (int i = 0; i < SERVO_COUNT; i++) {
-    servos.setPWM(i, 0, angles[i]);
-  }
+
+  initPosition();
 }
 
 char cmd = 0x00;
-int index = -1;
 
 void loop() {
   if (bluetooth.available() > 0) {  
@@ -34,7 +43,9 @@ void loop() {
     Serial.println(cmd);
   }
 
-  if (cmd == 'S') {
+  if (cmd == 'Z') {
+    initPosition();
+  } else if (cmd == 'S') {
     index = -1;
   } else if ((cmd >= 'A') && (cmd <= 'L')) {
     index = (cmd - 'A') / 2;    
