@@ -1,3 +1,6 @@
+// 다음 MCU에서만 동작한다.  NodeMCU와 충돌하여 제한을 둠
+#if defined(__AVR_ATmega328P__)  || defined(__AVR_ATmega32U4__)
+
 #ifndef RYUGAME_H
 #define RYUGAME_H
 
@@ -139,3 +142,4 @@ public:
 
 
 #endif // RYUGAME_H
+#endif

@@ -72,9 +72,9 @@ void sendLocalIP()
 }
 
 void loop() {
-  connector.connect();
-
   if (connector.onConnected()) sendLocalIP();
+
+  connector.connect();
 
   switch (getCommand()) {
     case '1': seR2D2(pin_buzzer); break;

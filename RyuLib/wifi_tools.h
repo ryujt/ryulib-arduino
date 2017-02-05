@@ -4,6 +4,7 @@
 
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
+#include <WiFiUDP.h>
 
 
 class WiFiConnector
@@ -66,6 +67,59 @@ public:
 		}
 
 		return false;
+	}
+};
+
+
+class SocketUDP
+{
+private:
+	WiFiUDP socket_;
+public:
+	SocketUDP()
+		: socket_()
+	{
+
+	}
+
+	void begin(int port)
+	{
+		socket_.begin(port);
+	}
+
+	void send(IPAddress ip, int port, String text)
+	{
+		socket_.beginPacket(ip, port);
+		socket_.write(text.c_str());
+		socket_.endPacket();		
+	}
+
+	void send(IPAddress ip, int port, char *text)
+	{
+		socket_.beginPacket(ip, port);
+		socket_.write(text);
+		socket_.endPacket();		
+	}
+
+	void send(IPAddress ip, int port, char *buffer, int size)
+	{
+		socket_.beginPacket(ip, port);
+		socket_.write(buffer, size);
+		socket_.endPacket();				
+	}
+
+	String readString()
+	{
+		int read_size = socket_.parsePacket();
+		if (!read_size) return "";
+
+		char *pBuffer = (char *) malloc(read_size);
+		socket_.read(pBuffer, read_size);
+
+		String line = "";
+		for (int i=0; i<read_size; i++) line = line + pBuffer[i];
+
+		return line;
 	}
 };
 
