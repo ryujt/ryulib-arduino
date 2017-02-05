@@ -6,7 +6,8 @@
 #define pin_buzzer 12
 #define pin_laser  16
 
-WiFiConnector connector("xxxx", "xxxx");
+//WiFiConnector connector("xxxx", "xxxx");
+WiFiConnector connector("ollehEgg_479", "info88479");
 WiFiServer server(80);
 ServoControl servos(4, 5);
 HttpGet http; 
@@ -15,10 +16,10 @@ void setup() {
   Serial.begin(9600); 
 
   // 고정 IP를 사용하고 싶을 때 사용하세요.
-//  IPAddress ip(192, 168, 1, 100); 
-//  IPAddress dns(192, 168, 1, 1); 
-//  IPAddress gateway(192, 168, 1, 1); 
-//  WiFi.config(ip, dns, gateway);
+  IPAddress ip(192, 168, 1, 100); 
+  IPAddress dns(192, 168, 1, 1); 
+  IPAddress gateway(192, 168, 1, 1); 
+  WiFi.config(ip, dns, gateway);
   
   pinMode(pin_buzzer, OUTPUT);
   pinMode(pin_laser , OUTPUT);
@@ -66,6 +67,8 @@ void sendLocalIP()
     String line = http.readln();
     Serial.println(line);
   }
+
+  seR2D2(pin_buzzer);
 }
 
 void loop() {
