@@ -58,8 +58,8 @@ void sendLocalIP()
   Serial.println(WiFi.localIP());
 
   // your_email 부분에 다른 사람과 겹치지 않을 문자열을 넣으시면 됩니다.
-  // http://www.awesomeit.kr/memo/get?user_id=your_email 을 하시면 
-  // 저장 된 Local IP를 확인 하실 수 있습니다.
+  // http://www.awesomeit.kr/memo/get?user_id=your_email 주소를 오픈하시면 저장 된 Local IP를 확인 하실 수 있습니다.
+  // http://www.awesomeit.kr/cat?user_id=your_email 주소를 오픈하시면 바로 레이저를 조정할 수 있습니다.
   http.get("www.awesomeit.kr", 80, "/memo/add?user_id=your_email&memo=" + WiFi.localIP().toString()); 
 
   while (http.available()) {
