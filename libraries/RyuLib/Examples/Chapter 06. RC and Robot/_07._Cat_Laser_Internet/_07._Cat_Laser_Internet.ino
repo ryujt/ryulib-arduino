@@ -6,7 +6,14 @@
 #define pin_buzzer 12
 #define pin_laser  16
 
-WiFiConnector connector("xxxx", "xxxx");
+// Key는 http://www.awesomeit.kr/cat_laser 에서 생성하시면 됩니다.
+String key = "GewvSx6z78nNbABVqkPLXom9rfMdgJji";
+
+//공유기의 id와 암호를 입력하시기 바랍니다.
+char *ssid = "xxxx";
+char *password = "xxxx";
+
+WiFiConnector connector(ssid, password);
 WiFiServer server(80);
 ServoControl servos(4, 5);
 HttpGet http; 
@@ -57,11 +64,7 @@ void sendLocalIP()
   Serial.print("Local IP: ");
   Serial.println(WiFi.localIP());
 
-  // your_email 부분에 다른 사람과 겹치지 않을 문자열을 넣으시면 됩니다.
-  // http://www.awesomeit.kr/memo/get?user_id=your_email 주소를 오픈하시면 저장 된 Local IP를 확인 하실 수 있습니다.
-  // http://www.awesomeit.kr/cat?user_id=your_email 주소를 오픈하시면 바로 레이저를 조정할 수 있습니다.
-  http.get("www.awesomeit.kr", 80, "/memo/add?user_id=your_email&memo=" + WiFi.localIP().toString()); 
-
+  http.get("www.awesomeit.kr", 80, "/api/set_user_ip?rid=" + key + "&local_ip=" + WiFi.localIP().toString()); 
   while (http.available()) {
     String line = http.readln();
     Serial.println(line);
