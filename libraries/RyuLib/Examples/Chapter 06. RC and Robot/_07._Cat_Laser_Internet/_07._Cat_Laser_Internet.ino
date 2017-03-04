@@ -9,7 +9,7 @@
 // Key는 http://www.awesomeit.kr/cat_laser 에서 생성하시면 됩니다.
 String key = "GewvSx6z78nNbABVqkPLXom9rfMdgJji";
 
-//공유기의 id와 암호를 입력하시기 바랍니다.
+// 공유기의 id와 암호를 입력하시기 바랍니다.
 char *ssid = "xxxx";
 char *password = "xxxx";
 
@@ -17,6 +17,7 @@ WiFiConnector connector(ssid, password);
 WiFiServer server(80);
 ServoControl servos(4, 5);
 HttpGet http; 
+SocketUDP udp;
 
 void setup() {
   Serial.begin(9600); 
@@ -32,8 +33,7 @@ void setup() {
   
   connector.connect();
   server.begin();
-
-  servos.setRangeY(0, 50);
+  udp.begin(1122);
 }
 
 char getCommand()
@@ -73,8 +73,27 @@ void sendLocalIP()
   seR2D2(pin_buzzer);
 }
 
+// UDP 소켓으로 들어온 좌표로 레이저를 이동
+void getPosition()
+{
+  digitalWrite(pin_laser, HIGH);
+  
+  String line = udp.readString();
+  if (line.length() > 0) {
+    String pos_x = line.substring(0, 3);
+    String pos_y = line.substring(4, 7);
+    servos.gotoXY(pos_x.toInt(), pos_y.toInt());
+    
+//    Serial.println(line);  
+//    Serial.print("pos_x: ");  Serial.println(pos_x);
+//    Serial.print("pos_y: ");  Serial.println(pos_y);  
+  }
+}
+
 void loop() {
-  if (connector.onConnected()) sendLocalIP();
+  if (connector.onConnected()) {
+    sendLocalIP();
+  }
 
   connector.connect();
 
@@ -90,8 +109,18 @@ void loop() {
     case '9': seSiren(pin_buzzer); break;
     case '0': seTonarkade(pin_buzzer); break;
     
+    case 'A': {
+      servos.start(1);
+      digitalWrite(pin_laser, HIGH);
+    } break;
+    
     case 'B': {
-      servos.start();
+      servos.start(2);
+      digitalWrite(pin_laser, HIGH);
+    } break;
+    
+    case 'C': {
+      servos.start(3);
       digitalWrite(pin_laser, HIGH);
     } break;
     
@@ -100,6 +129,8 @@ void loop() {
       digitalWrite(pin_laser, LOW);
     } break;
   }
+
+  getPosition();
 
   servos.execute();
 }
