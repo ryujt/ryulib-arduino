@@ -28,6 +28,7 @@ type
     procedure btPattern2Click(Sender: TObject);
     procedure btPattern3Click(Sender: TObject);
     procedure btSaveClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     FSimpleThread : TSimpleThread;
   private
@@ -183,6 +184,12 @@ begin
 
 //  FreeAndNil(FUDPSocket);
 //  FreeAndNil(FSimpleThread);
+end;
+
+procedure TfmMain.FormShow(Sender: TObject);
+begin
+  SetWindowPos(Handle, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOSIZE or SWP_NOMOVE);
+  SetWindowPos(Handle, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOSIZE or SWP_NOMOVE);
 end;
 
 procedure TfmMain.imgMainMouseDown(Sender: TObject; Button: TMouseButton;
