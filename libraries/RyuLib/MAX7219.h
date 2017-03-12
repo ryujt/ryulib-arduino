@@ -19,7 +19,9 @@ public:
 	{};
 
 	void begin();
-	void write(unsigned char address, unsigned char dat);
+	void write(unsigned char index, unsigned char data);
+	void write(char *data);
+	void write(char *data, int index, int size);
 };
 
 

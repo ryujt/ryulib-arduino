@@ -26,10 +26,41 @@ void MAX7219::begin()
 	write(0x0f, 0x00);
 }
 
-void MAX7219::write(unsigned char address, unsigned char dat)
+void MAX7219::write(unsigned char index, unsigned char data)
 {
 	digitalWrite(_CS, LOW);
-	write_byte(address);
-	write_byte(dat);
+	write_byte(index);
+	write_byte(data);
 	digitalWrite(_CS, HIGH);
+}
+
+void MAX7219::write(char *data)
+{
+	for (unsigned char i=0; i<8; i++) {
+		digitalWrite(_CS, LOW);
+		write_byte(i+1);
+		write_byte(pgm_read_byte_near(data + i));
+		digitalWrite(_CS, HIGH);
+	}
+}
+	
+void MAX7219::write(char *data, int index, int size)
+{
+	unsigned char blank = 0x00;
+	
+	for (unsigned char i=0; i<8; i++) {
+		int pos = index + i;
+
+		digitalWrite(_CS, LOW);
+		write_byte(i+1);
+
+		if (pos >= size) {
+			write_byte(blank);
+		} else {
+			write_byte(pgm_read_byte_near(data + i));
+		}
+
+		digitalWrite(_CS, HIGH);
+	}
+
 }
