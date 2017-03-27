@@ -8,11 +8,9 @@ Jumper  8mm: j23 - (+)
 Jumper  8mm: g24 - g27
 Jumper  8mm: (-) - a25
 Jumper  8mm: j26 - (+)
-Jumper  8mm: e27 - f27
 Jumper 10mm: (+) - a30
 Jumper  8mm: e30 - f30
 Jumper  8mm: j30 - (+)
-Jumper  8mm: e27 - f27
 
 세라믹 콘덴서 104: (+) - (-)
 세라믹 콘덴서 104: h21 - h23
@@ -25,6 +23,7 @@ Jumper  8mm: e27 - f27
 
 저항 220K 옴: (+) - a23
 저항  22K 옴: j21 - (-)
+저항  330 옴: e27 - f27
 
 가변 저항 100 옴: c24 - c26 - e25
 
@@ -37,9 +36,7 @@ Jumper  8mm: e27 - f27
 트렌지스터 9012 (]
   . h24 - h25 - h26
 
-LED: Gnd - j27
-
-Buzzer: (-) - a27
+LED: (-) - a27
 
 Coil 1: (+) - b21
 Coil 2: (+) - b22

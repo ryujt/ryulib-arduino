@@ -18,11 +18,11 @@ void setup() {
 
 void loop() {
   if (digitalRead(6) == LOW) {
-    srand(millis());
-    int no = (rand() % 3) + 1;
+    randomSeed(millis());
+    int no = random(3);
 
-    if (no == 1) max7219.write(scissors);    
-    if (no == 2) max7219.write(rock);    
-    if (no == 3) max7219.write(paper);    
+    if (no == 0) max7219.write(scissors);    
+    if (no == 1) max7219.write(rock);    
+    if (no == 2) max7219.write(paper);    
   }
 }
