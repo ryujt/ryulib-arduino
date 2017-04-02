@@ -76,10 +76,10 @@ void sendLocalIP()
 // UDP 소켓으로 들어온 좌표로 레이저를 이동
 void getPosition()
 {
-  digitalWrite(pin_laser, HIGH);
-  
   String line = udp.readString();
   if (line.length() > 0) {
+    digitalWrite(pin_laser, HIGH);
+  
     String pos_x = line.substring(0, 3);
     String pos_y = line.substring(4, 7);
     servos.gotoXY(pos_x.toInt(), pos_y.toInt());
