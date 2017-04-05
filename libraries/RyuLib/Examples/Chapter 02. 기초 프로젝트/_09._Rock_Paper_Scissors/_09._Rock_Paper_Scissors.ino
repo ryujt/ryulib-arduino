@@ -18,8 +18,8 @@ void setup() {
 
 void loop() {
   if (digitalRead(6) == LOW) {
-    randomSeed(millis());
-    int no = random(3);
+    srand(millis());
+    int no = rand() % 3;
 
     if (no == 0) max7219.write(scissors);    
     if (no == 1) max7219.write(rock);    

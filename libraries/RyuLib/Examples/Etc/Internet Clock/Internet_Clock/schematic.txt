@@ -1,0 +1,16 @@
+Jumper 10mm: Vcc - a1
+Jumper  8mm: Gnd - a2
+Jumper 10mm: j2 - Gnd
+Jumper  8mm: j5 - Vcc
+
+Jumper FM: RTC.Vcc - Vcc
+Jumper FM: RTC.Gnd - Gnd
+Jumper FM: RTC.CLK - a6
+Jumper FM: RTC.DAT - a7
+Jumper FM: RTC.RST - a8
+
+Jumper FM: TM1637.Vcc - Vcc
+Jumper FM: TM1637.Gnd - Gnd
+Jumper FM: TM1637.CLK - a11
+Jumper FM: TM1637.DIO - a13
+

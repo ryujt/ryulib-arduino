@@ -1,0 +1,26 @@
+Jumper 10mm: Vcc - a12
+Jumper 8mm:  Gnd - a14
+Jumper 10mm: j12 - Gnd
+
+Jumper 10mm: a18 - Vcc
+Jumper 8mm:  e18 - f18
+Jumper 10mm: d20 - d24
+Jumper 8mm:  e22 - f22
+Jumper 8mm:  e24 - f24
+Jumper 8mm:  e27 - f27
+Jumper 8mm:  a27 - Gnd
+
+R  1K: c18 - c23
+R  1K: b23 - b27
+R 10K: c24 - c27
+
+C104: d18 - e20
+C104: b20 - b22
+
+Tr 2n2222 (]: a22 - a23 - a24
+
+Inductor: j18 - j22
+
+Buzzer: j24 (Vcc) - j27
+
+Jumper: g24 - a4
