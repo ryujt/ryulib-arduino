@@ -10,8 +10,8 @@
 String key = "GewvSx6z78nNbABVqkPLXom9rfMdgJji";
 
 // 공유기의 id와 암호를 입력하시기 바랍니다.
-char *ssid = "xxxx";
-char *password = "xxxx";
+char *ssid = "U+NetA108";
+char *password = "DD6E018473";
 
 WiFiConnector connector(ssid, password);
 WiFiServer server(80);
