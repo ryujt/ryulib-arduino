@@ -4,6 +4,8 @@
 #include <Interval.h>
 
 GPS gps;
+
+// 10:TX, 11:RX
 SoftwareSerial ss(10, 11);
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 Interval interval(1000);
@@ -29,7 +31,7 @@ void loop()
   if (interval.onTime()) {
     lcd.clear();
     lcd.print(gps.get_lat_str());   lcd.print(", ");
-    lcd.print(gps.get_nors());  lcd.print(", ");
+    lcd.print(gps.get_nors());      lcd.print(", ");
     lcd.setCursor(0, 1);
     lcd.print(gps.get_lon_str());
   }

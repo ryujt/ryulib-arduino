@@ -3,6 +3,15 @@
 
 #include <Arduino.h>
 
+const double pi = 3.1415926535897932384626433832795028841971;
+const int earth_radius = 6371;
+
+double ConvertToRadians(double angle);
+double ConvertToStaticDegrees(double rad);
+double haversin(double input);
+double get_heading(double lat1, double long1, double lat2, double long2);
+double get_distance(double lat1, double long1, double lat2, double long2);
+
 class GPS {
 private:
   double lat_;
