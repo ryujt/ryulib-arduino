@@ -1,7 +1,7 @@
-const int a_01 = 2;  
-const int a_02 = 3; 
-const int b_01 = 4;
-const int b_02 = 5;
+const int a_01 = 3;  
+const int a_02 = 4; 
+const int b_01 = 5;
+const int b_02 = 6;
 
 void setup() 
 {
@@ -17,40 +17,84 @@ void setup()
   analogWrite(10, 100);
 }
 
+void forward()
+{
+  digitalWrite(a_01, HIGH);
+  digitalWrite(a_02, LOW);
+  digitalWrite(b_01, HIGH);
+  digitalWrite(b_02, LOW); 
+}
+
+void backward()
+{
+  digitalWrite(a_01, LOW);
+  digitalWrite(a_02, HIGH);
+  digitalWrite(b_01, LOW);
+  digitalWrite(b_02, HIGH);
+}
+
+void left()
+{
+  digitalWrite(a_01, HIGH);
+  digitalWrite(a_02, LOW);
+  digitalWrite(b_01, LOW);
+  digitalWrite(b_02, HIGH);
+}
+
+void right()
+{
+  digitalWrite(a_01, LOW);
+  digitalWrite(a_02, HIGH);
+  digitalWrite(b_01, LOW);
+  digitalWrite(b_02, LOW);  
+}
+
+void left_only()
+{
+  digitalWrite(a_01, LOW);
+  digitalWrite(a_02, LOW);
+  digitalWrite(b_01, LOW);
+  digitalWrite(b_02, HIGH);
+}
+
+void right_only()
+{
+  digitalWrite(a_01, LOW);
+  digitalWrite(a_02, HIGH);
+  digitalWrite(b_01, LOW);
+  digitalWrite(b_02, LOW);  
+}
+
+void stop()
+{
+  digitalWrite(a_01, LOW);
+  digitalWrite(a_02, LOW);
+  digitalWrite(b_01, LOW);
+  digitalWrite(b_02, LOW);  
+}
+
 void loop() 
 {
-  // forward
-  digitalWrite(a_01, HIGH);
-  digitalWrite(a_02, LOW);
-  digitalWrite(b_01, HIGH);
-  digitalWrite(b_02, LOW);
-  delay(2000);
+//  forward();
+//  delay(2000);
+
+//  backward();
+//  delay(2000);
   
-//  backward
-  digitalWrite(a_01, LOW);
-  digitalWrite(a_02, HIGH);
-  digitalWrite(b_01, LOW);
-  digitalWrite(b_02, HIGH);
-  delay(2000);
+//  left();
+//  delay(2000);
   
-//  left
-  digitalWrite(a_01, HIGH);
-  digitalWrite(a_02, LOW);
-  digitalWrite(b_01, LOW);
-  digitalWrite(b_02, HIGH);
-  delay(2000);
-  
-//  right
-  digitalWrite(a_01, LOW);
-  digitalWrite(a_02, HIGH);
-  digitalWrite(b_01, HIGH);
-  digitalWrite(b_02, LOW);  
+//  right()
+//  delay(2000);
+
+  stop();
+  left_only();
   delay(2000);
 
-  // stop
-  digitalWrite(a_01, LOW);
-  digitalWrite(a_02, LOW);
-  digitalWrite(b_01, LOW);
-  digitalWrite(b_02, LOW);
+  stop();
+  right_only();
+  delay(2000);
+
+  stop();
   delay(2000);
 }

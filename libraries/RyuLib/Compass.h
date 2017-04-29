@@ -13,7 +13,13 @@
 
 class Compass {
 private:
+  int angle_offset_;
 public:
+  Compass()
+    : angle_offset_(0)
+  {    
+  }
+
   void begin()
   {
     Wire.begin();
@@ -23,7 +29,7 @@ public:
     Wire.endTransmission();
   }
 
-  double get_angle()
+  int get_angle()
   {
     //Tell the HMC5883 where to begin reading data
     Wire.beginTransmission(COMPASS_ADDRESS);
@@ -33,13 +39,22 @@ public:
     //Read data from each axis, 2 registers per axis
     int x,y,z;
     Wire.requestFrom(COMPASS_ADDRESS, 6);
-    if(6<=Wire.available()){
+    if(6 <= Wire.available()){
       x = Wire.read() << 8 | Wire.read();
       z = Wire.read() << 8 | Wire.read();
       y = Wire.read() << 8 | Wire.read();
     }
 
-    return atan2((double)y + Y_OFFSET, (double)x + X_OFFSET) * (180 / 3.141592654) + 180; 
+    const double pi = 3.1415926535897932384626433832795028841971;
+    double angle = atan2(y + Y_OFFSET, x + X_OFFSET) * 180 / pi + 180; 
+
+    return ( ((int) angle) + angle_offset_ ) % 360;
+  }
+
+  /// 센서나 장치가 기울어진 정도를 입력한다.
+  void set_angle_offset(int value)
+  {
+    angle_offset_ = value;
   }
 };
 

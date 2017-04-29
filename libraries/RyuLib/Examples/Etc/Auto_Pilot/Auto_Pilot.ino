@@ -1,16 +1,124 @@
+#include <SoftwareSerial.h>
 #include <GPS.h>
+#include <Compass.h>
+#include <TM1637Display.h>
+
+// 독도 위치
+//const double target_lat = 37.2412295;
+//const double target_lon = 131.8647985;
+
+// 양동 초등학교 운동장 가운데
+const double target_lat = 37.5262578;
+const double target_lon = 126.8511410;
+
+const int motor_05 = 3; 
+const int motor_06 = 5;
+
+const int full_speed = 255;
+const int middle_speed = 200;
+const int low_speed = 100;
+
+// 10:TX, 11:RX
+SoftwareSerial ss(10, 11);
+
+GPS gps;
+Compass compass;
+TM1637Display display(7, 8);
+
+bool is_stoped = false;
 
 void setup() {
-  Serial.begin(9600);
+//  Serial.begin(9600);
 
-  Serial.print( "get_heading: " );
-  Serial.println( get_heading(37.7713545, 128.9575826, 37.2412295, 131.8647985) );
-  
-  Serial.print( "get_distance: " );
-  Serial.println( get_distance(37.7713545, 128.9575826, 37.2412295, 131.8647985) );
+  ss.begin(9600);
+
+  // 테스트 한 센서가 368도 기울져 있다.
+  // 탱크에 센서를 반대 방향으로 달아서 -180
+  compass.set_angle_offset(368 - 180);
+  compass.begin();
+
+  pinMode(motor_05, OUTPUT);
+  pinMode(motor_06, OUTPUT);
+
+  display.setBrightness(15);
+}
+
+void forward()
+{
+  analogWrite(motor_05, full_speed);
+  analogWrite(motor_06, full_speed);
+}
+
+void left()
+{
+  analogWrite(motor_05, full_speed);
+  analogWrite(motor_06, middle_speed);
+}
+
+void right()
+{
+  analogWrite(motor_05, middle_speed);
+  analogWrite(motor_06, full_speed);
+}
+
+void left_only()
+{
+  analogWrite(motor_05, low_speed);
+  analogWrite(motor_06, 0);
+}
+
+void right_only()
+{
+  analogWrite(motor_05, 0);
+  analogWrite(motor_06, low_speed);
+}
+
+void stop()
+{
+  analogWrite(motor_05, 0);
+  analogWrite(motor_06, 0);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  while (ss.available()) {
+    char ch = ss.read();
+    gps.decode(ch);
+//    Serial.print(ch);
+  }
 
+  double lat = gps.get_lat(); 
+  double lon = gps.get_lon(); 
+  double distance = get_distance(lat, lon, target_lat, target_lon);
+
+  int angle = compass.get_angle();
+  int target_angle = get_heading(lat, lon, target_lat, target_lon);
+
+  display.showNumberDec(angle);    
+
+//  Serial.print("angle: ");
+//  Serial.println(angle);
+//  
+//  Serial.print("target_angle: ");
+//  Serial.println(target_angle);
+//  
+//  Serial.print("get_distance: ");
+//  Serial.println(distance);
+
+  if (is_stoped) {
+    stop();
+    return;
+  }
+
+  if ((angle - target_angle) > 5) {
+    left();    
+  } else if ((angle - target_angle) < -5) {
+    right();
+  } else {
+    forward();
+  }
+
+  if (distance <= 10) {
+    is_stoped = true;
+    stop();
+  }
 }

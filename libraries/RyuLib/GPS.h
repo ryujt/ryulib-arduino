@@ -9,7 +9,7 @@ const int earth_radius = 6371;
 double ConvertToRadians(double angle);
 double ConvertToStaticDegrees(double rad);
 double haversin(double input);
-double get_heading(double lat1, double long1, double lat2, double long2);
+int get_heading(double lat1, double long1, double lat2, double long2);
 double get_distance(double lat1, double long1, double lat2, double long2);
 
 class GPS {
@@ -39,7 +39,7 @@ public:
         lon_str_ = str[4];
 
         lat_ = atof(str[2]) / 100;
-        lon_ = atof(str[4]) / 1000;
+        lon_ = atof(str[4]) / 100;
 
         nors_ = *str[3];
       }

@@ -20,7 +20,7 @@ double haversin(double input)
   return (sin(input / 2)) * (sin(input / 2));
 }
 
-double get_heading(double lat1, double long1, double lat2, double long2)
+int get_heading(double lat1, double long1, double lat2, double long2)
 {
   lat1 = ConvertToRadians(lat1);
   lat2 = ConvertToRadians(lat2);
@@ -31,7 +31,7 @@ double get_heading(double lat1, double long1, double lat2, double long2)
   double y = sin(dLon) * cos(lat2);
   double x = cos(lat1) * sin(lat2) - sin(lat1) * cos(lat2) * cos(dLon);
   
-  return ConvertToStaticDegrees(atan2(y, x));
+  return (int) ConvertToStaticDegrees(atan2(y, x));
 }
 
 /// distance in meter
