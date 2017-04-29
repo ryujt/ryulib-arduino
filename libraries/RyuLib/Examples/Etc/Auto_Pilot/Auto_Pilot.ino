@@ -1,7 +1,7 @@
 #include <SoftwareSerial.h>
 #include <GPS.h>
 #include <Compass.h>
-#include <TM1637Display.h>
+#include <Interval.h>
 
 // 독도 위치
 //const double target_lat = 37.2412295;
@@ -23,12 +23,12 @@ SoftwareSerial ss(10, 11);
 
 GPS gps;
 Compass compass;
-TM1637Display display(7, 8);
+Interval interval(1000);
 
 bool is_stoped = false;
 
 void setup() {
-//  Serial.begin(9600);
+  Serial.begin(9600);
 
   ss.begin(9600);
 
@@ -39,8 +39,6 @@ void setup() {
 
   pinMode(motor_05, OUTPUT);
   pinMode(motor_06, OUTPUT);
-
-  display.setBrightness(15);
 }
 
 void forward()
@@ -93,16 +91,16 @@ void loop() {
   int angle = compass.get_angle();
   int target_angle = get_heading(lat, lon, target_lat, target_lon);
 
-  display.showNumberDec(angle);    
-
-//  Serial.print("angle: ");
-//  Serial.println(angle);
-//  
-//  Serial.print("target_angle: ");
-//  Serial.println(target_angle);
-//  
-//  Serial.print("get_distance: ");
-//  Serial.println(distance);
+  if (interval.onTime()) {
+    Serial.print("angle: ");
+    Serial.println(angle);
+    
+    Serial.print("target_angle: ");
+    Serial.println(target_angle);
+    
+    Serial.print("get_distance: ");
+    Serial.println(distance);
+  }
 
   if (is_stoped) {
     stop();

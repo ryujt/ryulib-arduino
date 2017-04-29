@@ -24,15 +24,16 @@ public:
   void decode(char c) {
     if (c == '$') {
       String command = text_.substring(0, 5);
-      Serial.println(command);
-      Serial.println(text_);
+
+      // Serial.println(command);
 
       if (command.equals("GPGGA")) {
+        Serial.println(text_);
+        
         char *text = text_.c_str();
         char *str[6];
         for (int i=0; i<6; i++) {
           str[i] = strtok_r(text, ",", &text);
-//          Serial.println(str[i]);
         }
 
         lat_str_ = str[2];
