@@ -7,9 +7,9 @@
 //const double target_lat = 37.2412295;
 //const double target_lon = 131.8647985;
 
-// 양동 초등학교 운동장 가운데
-const double target_lat = 37.5262578;
-const double target_lon = 126.8511410;
+// 양천공원
+const double target_lat = 37.5179259;
+const double target_lon = 126.8683118;
 
 const int motor_05 = 3; 
 const int motor_06 = 5;

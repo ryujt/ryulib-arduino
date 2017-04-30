@@ -7,7 +7,7 @@ GPS gps;
 
 // 10:TX, 11:RX
 SoftwareSerial ss(10, 11);
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+LiquidCrystal_I2C lcd(0x27, 2, 16); 
 Interval interval(1000);
 
 void setup()
@@ -18,6 +18,7 @@ void setup()
  
   lcd.init();  
   lcd.backlight();
+  lcd.print("start");
 }
 
 void loop()
