@@ -8,8 +8,12 @@
 //const double target_lon = 131.8647985;
 
 // 양천공원
-const double target_lat = 37.5179259;
-const double target_lon = 126.8683118;
+//const double target_lat = 37.5179259;
+//const double target_lon = 126.8683118;
+
+// 율동공원 놀이터
+const double target_lat = 37.377633;
+const double target_lon = 127.147710;
 
 const int motor_05 = 3; 
 const int motor_06 = 5;
