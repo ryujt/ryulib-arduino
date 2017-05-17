@@ -21,7 +21,7 @@ SoundControl sound(12);
 LaserControl laser(16);
 
 void setup() {
-  Serial.begin(9600); 
+  Serial.begin(115200); 
 
   connector.connect();
   controlServer.begin();
@@ -53,6 +53,12 @@ void loop() {
   database.execute();
 
   char command = controlServer.getCommand();
+
+  while (Serial.available()) {
+    String line = Serial.readStringUntil('\n');  
+    servos.execute(line);
+  }
+
   servos.execute(command);
   sound.execute(command);
   laser.execute(command);

@@ -77,6 +77,23 @@ public:
 		servo_y_.write(y);
 	}
 
+  void execute(String cmd)
+  {
+      char *text = (char *) cmd.c_str();
+      char *str[6];
+      for (int i=0; i<6; i++) {
+        str[i] = strtok_r(text, " ", &text);
+      }
+
+      String str_x = str[1];
+      String str_y = str[2];
+
+      int x = str_x.toInt();
+      int y = str_y.toInt();
+
+      gotoXY(x, y);
+  }
+  
 	void execute(char ch)
 	{
 		switch (ch) {

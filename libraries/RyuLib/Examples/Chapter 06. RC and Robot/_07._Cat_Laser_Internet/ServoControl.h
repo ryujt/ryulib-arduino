@@ -17,29 +17,30 @@ const unsigned char pattern_3[1060] PROGMEM = { 0x19, 0x0D, 0x19, 0x0D, 0x19, 0x
 class ServoControl
 {
 private:
-  int no_;
-  int index_;
-  bool is_attached_;
-	bool is_started_;
-	long old_tick_;
-	int count_;
-
 	int pin_x_;
 	int pin_y_;
 	Servo servo_x_;
 	Servo servo_y_;
+
+	int no_;
+	int index_;
+	bool is_attached_;
+	bool is_started_;
+	long old_tick_;
+	int count_;
+
 public:
 	ServoControl(int pin_x, int pin_y)
-		: no_(1), index_(0), is_attached_(false), is_started_(false), old_tick_(0), count_(0),
-		  pin_x_(pin_x), pin_y_(pin_y), servo_x_(), servo_y_()
+		: pin_x_(pin_x), pin_y_(pin_y), servo_x_(), servo_y_(),
+		  no_(1), index_(0), is_attached_(false), is_started_(false), old_tick_(0), count_(0)
 	{
 	}
 
 	void attach()
 	{
-    if (is_attached_) return;
+    	if (is_attached_) return;
 
-    is_attached_ = true;
+    	is_attached_ = true;
 
 		servo_x_.attach(pin_x_);
 		servo_y_.attach(pin_y_);
@@ -47,7 +48,7 @@ public:
 
 	void detach()
 	{
-    is_attached_ = false;
+    	is_attached_ = false;
 
 		servo_x_.detach();
 		servo_y_.detach();
@@ -55,29 +56,36 @@ public:
 
 	void start(int no)
 	{
-    no_ = no;
+    	no_ = no;
 		is_started_ = true;
 		old_tick_ = 0;
 
-    attach();
+    	attach();
 	}
 
 	void stop()
 	{
 		is_started_ = false;
-    detach();
+    	detach();
 	}
 
- void gotoXY(int x, int y)
- {
-    is_started_ = false;
-    attach();
-    servo_x_.write(x);
-    servo_y_.write(y);
- }
-
-	void execute()
+ 	void gotoXY(int x, int y)
 	{
+		is_started_ = false;
+		attach();
+		servo_x_.write(x);
+		servo_y_.write(y);
+	}
+
+	void execute(char ch)
+	{
+		switch (ch) {
+			case 'A': start(1); break;
+			case 'B': start(2); break;
+			case 'C': start(3); break;
+			case 'S': stop(); break;
+		}
+
 		if (is_started_ == false) return;
 
 		long tick = millis();
@@ -88,38 +96,38 @@ public:
 		if (count_ < SPEED) return;
 		count_ = 0;
 
-    int size;
-    switch (no_) {
-      case 1: size = sizeof(pattern_1) / 2; break;
-      case 2: size = sizeof(pattern_2) / 2; break;
-      case 3: size = sizeof(pattern_3) / 2; break;
-    }
+	    int size;
+	    switch (no_) {
+			case 1: size = sizeof(pattern_1) / 2; break;
+			case 2: size = sizeof(pattern_2) / 2; break;
+			case 3: size = sizeof(pattern_3) / 2; break;
+    	}
 
-    if (index_ >= size) index_ = 0;
+	    if (index_ >= size) index_ = 0;
 
-    int x;
-    int y;
-    switch (no_) {
-      case 1: {
-        x = pgm_read_byte(&pattern_1[index_ * 2]);
-        y = pgm_read_byte(&pattern_1[(index_ * 2) + 1]);
-      } break;
+	    int x;
+	    int y;
+	    switch (no_) {
+			case 1: {
+				x = pgm_read_byte(&pattern_1[index_ * 2]);
+				y = pgm_read_byte(&pattern_1[(index_ * 2) + 1]);
+			} break;
 
-      case 2: {
-        x = pgm_read_byte(&pattern_2[index_ * 2]);
-        y = pgm_read_byte(&pattern_2[(index_ * 2) + 1]);
-      } break;
+			case 2: {
+				x = pgm_read_byte(&pattern_2[index_ * 2]);
+				y = pgm_read_byte(&pattern_2[(index_ * 2) + 1]);
+			} break;
 
-      case 3: {
-        x = pgm_read_byte(&pattern_3[index_ * 2]);
-        y = pgm_read_byte(&pattern_3[(index_ * 2) + 1]);
-      } break;
-    }
+			case 3: {
+				x = pgm_read_byte(&pattern_3[index_ * 2]);
+				y = pgm_read_byte(&pattern_3[(index_ * 2) + 1]);
+			} break;
+	    }
 
-    servo_x_.write(x);
-    servo_y_.write(y);
+	    servo_x_.write(x);
+	    servo_y_.write(y);
 
-    index_++;
+	    index_++;
 	}
 };
 

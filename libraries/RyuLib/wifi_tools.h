@@ -18,18 +18,14 @@ private:
 
 	long old_tick_;
 	int connect_count_;
-
-	char *ssid_;
-	char *password_;
 public:
-	WiFiConnector(char *ssid, char *password)	
+	WiFiConnector()	
 		: on_connected_(false), on_connected_fired_(false),
-		  old_tick_(0), connect_count_(0),
-		  ssid_(ssid), password_(password)
+		  old_tick_(0), connect_count_(0)
 	{
 	}
 
-	void connect()
+	void connect(String ssid, String password)
 	{
 		long tick = millis();
 		long term;
@@ -41,7 +37,8 @@ public:
 	
 		if ((WiFi.status() != WL_CONNECTED) && (connect_count_ <= 0)) {
 			connect_count_ = 5000;
-			WiFi.begin(ssid_, password_);
+
+			WiFi.begin(ssid.c_str(), password.c_str());
 			Serial.println("(WiFi.status() != WL_CONNECTED) && (connect_count <= 0)");
 			return;
 		}
