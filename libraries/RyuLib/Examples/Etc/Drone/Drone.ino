@@ -1,6 +1,8 @@
 #include <math.h>
 #include <Wire.h>
+#include <SoftwareSerial.h>
 #include "kalman.h"
+#include "MotorDriver.h"
 
 /* MPU-6050 sensor */
 #define MPU6050_ACCEL_XOUT_H 0x3B // R
@@ -50,6 +52,9 @@ int xCal = 0;
 int yCal = 0;
 int zCal = 1800;
 
+MotorDriver motors;
+SoftwareSerial bluetooth(11, 12);
+
 void setup()
 {
 	int error;
@@ -60,7 +65,7 @@ void setup()
 	initGyroKalman(&angZ, Q_angle, Q_gyro, R_angle);
 
 	Serial.begin(9600);
-	Wire.begin();
+  Wire.begin();
 
 	// default at power-up:
 	// Gyro at 250 degrees second
@@ -87,10 +92,38 @@ void setup()
 
 	// Clear the 'sleep' bit to start the sensor.
 	MPU6050_write_reg (MPU6050_PWR_MGMT_1, 0);
+
+  motors.begin();
+
+  bluetooth.begin(9600);  
 }
+
+int height = 0;
 
 void loop()
 {
+  while (bluetooth.available() > 0) {
+    char ch = bluetooth.read();
+    Serial.println(ch);
+
+    switch (ch) {
+      case 'S': {
+        height = 0;
+        motors.setHeight(height);
+      } break;
+      
+      case 'U': {
+        height = height + 5;
+        motors.setHeight(height);
+      } break;
+      
+      case 'D': {
+        height = height - 5;
+        motors.setHeight(height);
+      } break;
+    }
+  }
+
 	int error;
 	double dT;
 	accel_t_gyro_union accel_t_gyro;
@@ -157,13 +190,16 @@ void loop()
   			gy1 += yCal;
 		}
 
-		Serial.print(F("Angle x,y,z : "));
-		Serial.print(gx1, DEC);
-		Serial.print(F(", "));
-		Serial.print(gy1, DEC);
-		Serial.print(F(", "));
-		Serial.print(gz1, DEC);
-		Serial.println(F(""));
+//		Serial.print(F("Angle x,y,z : "));
+//		Serial.print(gx1, DEC);
+//		Serial.print(F(", "));
+//		Serial.print(gy1, DEC);
+//		Serial.print(F(", "));
+//		Serial.print(gz1, DEC);
+//		Serial.println(F(""));
+
+    motors.setX(gy1 - 62);
+    motors.setY(-gx1);
 	}
 
 	prevSensoredTime = curSensoredTime;
