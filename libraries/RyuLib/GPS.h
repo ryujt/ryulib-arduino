@@ -28,7 +28,7 @@ public:
 
       if (command.equals("$GPGGA")) {
         Serial.println("$GPGGA -->");
-        char *text = text_.c_str();
+        char *text = (char *) text_.c_str();
         char *str[6];
         for (int i=0; i<6; i++) {
           str[i] = strtok_r(text, ",", &text);
