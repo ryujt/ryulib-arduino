@@ -5,7 +5,7 @@
 #include <Wire.h>
 
 //0011110b, I2C 7bit address of HMC5883
-#define COMPASS_ADDRESS 0x1E 
+#define COMPASS_ADDRESS 0x68 
 
 #define X_OFFSET  30
 #define Y_OFFSET 128
