@@ -1,7 +1,7 @@
 # Library for Arduino
 
 
-## Tutorials (Korean only)
+## Tutorials
 
 ### Welcome
 
